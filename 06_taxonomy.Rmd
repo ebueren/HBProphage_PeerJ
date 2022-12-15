@@ -163,7 +163,7 @@ group.piv <- group.tax %>%
     values_to = "NumPhage",
     values_drop_na = TRUE
   )
-group.piv$percent <- group.piv$NumPhage/all.piv$total.all*100
+group.piv$percent <- group.piv$NumPhage/group.piv$total.all*100
 
 #create a taxonomy bar graph divided by bacterial hosts
 

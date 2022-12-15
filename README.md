@@ -14,4 +14,4 @@
 
 05_functanalysis: Functional analysis of phage proteins, Fig 3.
 
-06_taxonomy: Classifying taxonomic families of phage, Fig 5.
+06_taxonomy: Classifying taxonomic families of phage, Fig 5. For code on how taxonomy was collected, see: https://github.com/scubalaina/phage_ref_ani_aai 
