@@ -78,7 +78,8 @@ isolate.num <- isolate.num[!duplicated(isolate.num$FinalGroup), ]
 isolate.num <- isolate.num[, -c(4:7)] ##remove non-isolate information
 
 
-write.csv(isolate.num, file ="data/IsolateCounts_dc525.csv")
+write.csv(isolate.num, file ="data/IsolateCounts_dc525.csv") ##cleaned up version of this becomes Table1
+
 ```
 
 ##Phage Percent, Descp. Stats ##

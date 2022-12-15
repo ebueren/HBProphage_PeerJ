@@ -2,5 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
+*.Rproj
 ignore/*
 *.html
+.DS_Store
+**/.DS_Store
