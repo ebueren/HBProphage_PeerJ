@@ -24,6 +24,8 @@ bacterialsize <- read.csv("data/raw/GenomeLengths_v4.csv")
 ```
 
 
+
+
 ##Create NCBI Info & remove duplicate isolates and non-honey bee sequences
 ```{r}
 
@@ -48,7 +50,11 @@ hb1<- hb1[, -c(115)] ##delete the "delete" column for duplicates so it doesn't g
 
 hb1 <- hb1[,c(1:3)] ##shortened list of honey bee isolates
 
+
+
 hb1$hb <- "from_hb"
+
+
 
 ```
 
@@ -125,8 +131,15 @@ HBall <- HBall[,c(2,10,9,8,1,6)] ##remove unecessary columns
 Add in bacterial isolate length
 ```{r}
 HBall <- merge(HBall, bacterialsize, by.x="FNA.name", by.y="FNAName", all.y=FALSE)
-```
 
+##Create a .csv version of Table S1 (bacterial isolate name and genbank accession number)
+TS1 <- merge(HBall, NCBI, by.x="FNA.name", by.y="FNA.File", all.x=TRUE, all.y=FALSE)
+TS1 <- TS1[,c(1,28)]
+colnames(TS1)[1:2]=c("Isolate", "Genbank Assembly Accession")
+
+write.csv(TS1, "tables/TableS1-Accession.csv")
+
+```
 
 #### HONEY BEE PHAGE ANALYSIS #### 
 
@@ -373,3 +386,5 @@ vcon <- subset(full_derep, full_derep$representative=="reference_phage")
 write.csv(vcon, "data/misc/derep_genomeinfo_vcontlist.csv")
 
 ```
+
+
