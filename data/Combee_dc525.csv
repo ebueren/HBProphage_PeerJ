@@ -1,0 +1,182 @@
+"","FNAName","Relationship","Phylotype","FinalGroup","Num_of_phage","phage.length.sum","bac.size","percent","NumIntPhage","SumIntPhage","IntPerc"
+"1","BaApis_BBC0122.fna","Core","Bartonella apis","Bartonella apis",2,61164,2907212,2.10387133790037,0,0,0
+"2","BaApis_BBC0178.fna","Core","Bartonella apis","Bartonella apis",1,25200,2601172,0.968794066674561,0,0,0
+"3","BaApis_BBC0244.fna","Core","Bartonella apis","Bartonella apis",1,36450,2643257,1.37898055315847,0,0,0
+"4","BaApis_PEB0122.fna","Core","Bartonella apis","Bartonella apis",2,43687,2603122,1.67825403496263,0,0,0
+"5","BaApis_PEB0149.fna","Core","Bartonella apis","Bartonella apis",1,29444,2525262,1.16597802525045,0,0,0
+"6","BaApis_PEB0150.fna","Core","Bartonella apis","Bartonella apis",2,73666,2582140,2.85290495480493,1,41673,1.61389390195729
+"7","BiAsteroides_1460B.fna","Core","Bifidobacterium spp.","Bifidobacterium asteroides",0,0,2121817,0,0,0,0
+"8","BiAsteroides_Bin2.fna","Core","Bifidobacterium spp.","Bifidobacterium asteroides",0,0,2094785,0,0,0,0
+"9","BiAsteroides_Bin7.fna","Core","Bifidobacterium spp.","Bifidobacterium asteroides",0,0,2132390,0,0,0,0
+"10","BiAsteroides_DSM20089_2.fna","Core","Bifidobacterium spp.","Bifidobacterium asteroides",0,0,2190368,0,0,0,0
+"11","BiAsteroides_ESL0170.fna","Core","Bifidobacterium spp.","Bifidobacterium asteroides",1,46614,2175262,2.1429142788317,1,46614,2.1429142788317
+"12","BiAsteroides_ESL0198.fna","Core","Bifidobacterium spp.","Bifidobacterium asteroides",1,34318,2235610,1.53506201886733,0,0,0
+"13","BiAsteroides_ESL0199.fna","Core","Bifidobacterium spp.","Bifidobacterium asteroides",0,0,2167340,0,0,0,0
+"14","BiAsteroides_ESL0200.fna","Core","Bifidobacterium spp.","Bifidobacterium asteroides",0,0,1933421,0,0,0,0
+"15","BiAsteroides_Hma3.fna","Core","Bifidobacterium spp.","Bifidobacterium asteroides",0,0,2245218,0,0,0,0
+"16","BiAsteroides_VRA9sqn.fna","Core","Bifidobacterium spp.","Bifidobacterium asteroides",1,36917,2140182,1.7249467568646,1,36917,1.7249467568646
+"17","BiAsteroides_W8102.fna","Core","Bifidobacterium spp.","Bifidobacterium asteroides",0,0,2057523,0,0,0,0
+"18","BiAsteroides_W8111.fna","Core","Bifidobacterium spp.","Bifidobacterium asteroides",1,37691,2241614,1.68142240367878,1,37691,1.68142240367878
+"19","BiCoryneforme_Bma6.fna","Core","Bifidobacterium spp.","Bifidobacterium coryneforme",0,0,1749707,0,0,0,0
+"20","BiCoryneforme_LMG18911.fna","Core","Bifidobacterium spp.","Bifidobacterium coryneforme",1,23954,1755151,1.36478285913862,0,0,0
+"21","BiIndicum_ESL0197.fna","Core","Bifidobacterium spp.","Bifidobacterium indicum",1,10575,1715238,0.616532516187258,0,0,0
+"22","BoApis_SME1.fna","Core","Acetobacter","Bombella apis",4,127533,2086297,6.11288804997563,1,29504,1.41418024375245
+"23","FrPerrara_ESL0167.fna","Core","Frischella perrara","Frischella perrara",1,16530,2558525,0.64607537546047,0,0,0
+"24","FrPerrara_PEB0191.fna","Core","Frischella perrara","Frischella perrara",2,39946,2692351,1.48368470530031,0,0,0
+"25","GiApicola_A1212.fna","Core","Gilliamella spp.","Gilliamella apicola",4,102028,2942700,3.46715601318517,3,87941,2.98844598497978
+"26","GiApicola_A124.fna","Core","Gilliamella spp.","Gilliamella apicola",5,87946,3144522,2.79680027679883,1,27817,0.884617757484285
+"27","GiApicola_A224.fna","Core","Gilliamella spp.","Gilliamella apicola",4,98644,3136687,3.14484677623238,1,27817,0.886827407388751
+"28","GiApicola_A712.fna","Core","Gilliamella spp.","Gilliamella apicola",5,113155,3143865,3.59923215532474,1,27183,0.864636363202618
+"29","GiApicola_A724.fna","Core","Gilliamella spp.","Gilliamella apicola",4,86499,2943177,2.938966973444,2,73706,2.50430062480102
+"30","GiApicola_A8.fna","Core","Gilliamella spp.","Gilliamella apicola",1,7126,3046518,0.233906380989707,0,0,0
+"31","GiApicola_A812.fna","Core","Gilliamella spp.","Gilliamella apicola",3,91573,2929550,3.12583843935075,3,91573,3.12583843935075
+"32","GiApicola_A9.fna","Core","Gilliamella spp.","Gilliamella apicola",0,0,3028920,0,0,0,0
+"33","GiApicola_A912.fna","Core","Gilliamella spp.","Gilliamella apicola",6,106194,3145014,3.37658274335186,1,27183,0.86432047679279
+"34","GiApicola_AM4.fna","Core","Gilliamella spp.","Gilliamella apicola",1,23266,3063854,0.759370387753463,1,23266,0.759370387753463
+"35","GiApicola_AM6.fna","Core","Gilliamella spp.","Gilliamella apicola",3,26397,3003378,0.878910346949335,1,7557,0.251616679618749
+"36","GiApicola_AW11.fna","Core","Gilliamella spp.","Gilliamella apicola",5,92422,2942846,3.14056528951906,2,41677,1.41621410022815
+"37","GiApicola_AW13.fna","Core","Gilliamella spp.","Gilliamella apicola",6,94933,3128857,3.0341111786189,1,31774,1.01551461124622
+"38","GiApicola_Aw17.fna","Core","Gilliamella spp.","Gilliamella apicola",4,86739,2928228,2.96216688044783,2,59284,2.02456912508179
+"39","GiApicola_ESL0177.fna","Core","Gilliamella spp.","Gilliamella apicola",2,80974,3086198,2.62374611091058,2,80974,2.62374611091058
+"40","GiApicola_ESL0178.fna","Core","Gilliamella spp.","Gilliamella apicola",1,11293,2885657,0.391349353024285,0,0,0
+"41","GiApicola_ESL0182.fna","Core","Gilliamella spp.","Gilliamella apicola",2,71712,3537173,2.02738175373384,2,71712,2.02738175373384
+"42","GiApicola_M63G.fna","Core","Gilliamella spp.","Gilliamella apicola",1,21198,2709165,0.782455110707543,1,21198,0.782455110707543
+"43","GiApicola_N10.fna","Core","Gilliamella spp.","Gilliamella apicola",3,76593,2898993,2.64205536198259,2,65877,2.27240976435611
+"44","GiApicola_N1212.fna","Core","Gilliamella spp.","Gilliamella apicola",1,18519,3076431,0.601963769055766,0,0,0
+"45","GiApicola_N1512.fna","Core","Gilliamella spp.","Gilliamella apicola",1,7587,3049463,0.248797903106219,0,0,0
+"46","GiApicola_N2.fna","Core","Gilliamella spp.","Gilliamella apicola",3,76297,2908650,2.62310693964554,2,67674,2.32664638234232
+"47","GiApicola_N22.fna","Core","Gilliamella spp.","Gilliamella apicola",3,60907,2974046,2.04795083868911,1,39155,1.31655663698544
+"48","GiApicola_N28.fna","Core","Gilliamella spp.","Gilliamella apicola",3,32823,2979016,1.10180677109488,1,14616,0.490631805938605
+"49","GiApicola_N4.fna","Core","Gilliamella spp.","Gilliamella apicola",3,73444,2910729,2.52321669245059,2,64821,2.22696788330346
+"50","GiApicola_N6.fna","Core","Gilliamella spp.","Gilliamella apicola",3,72756,2905171,2.50436204960052,2,64133,2.20754647488909
+"51","GiApicola_N94.fna","Core","Gilliamella spp.","Gilliamella apicola",1,18847,3069680,0.613972791952256,0,0,0
+"52","GiApicola_NG5.fna","Core","Gilliamella spp.","Gilliamella apicola",1,12409,3063691,0.405034319714358,1,12409,0.405034319714358
+"53","GiApicola_NO10.fna","Core","Gilliamella spp.","Gilliamella apicola",2,27084,3051496,0.887564656810954,0,0,0
+"54","GiApicola_NO5.fna","Core","Gilliamella spp.","Gilliamella apicola",1,19905,3063250,0.6498000489676,0,0,0
+"55","GiApicola_NO6.fna","Core","Gilliamella spp.","Gilliamella apicola",1,9317,3064360,0.304043911289796,0,0,0
+"56","GiApicola_NO8.fna","Core","Gilliamella spp.","Gilliamella apicola",2,12033,3037207,0.396186364643569,0,0,0
+"57","GiApicola_P54G.fna","Core","Gilliamella spp.","Gilliamella apicola",3,108471,3105460,3.4929124831748,2,87719,2.82467009718367
+"58","GiApicola_SCGCB02.fna","Core","Gilliamella spp.","Gilliamella apicola",2,19436,1808043,1.07497443368327,0,0,0
+"59","GiApicola_SCGCI20.fna","Core","Gilliamella spp.","Gilliamella apicola",3,35819,2212545,1.61890492622749,1,23975,1.08359378001351
+"60","GiApicola_W8127.fna","Core","Gilliamella spp.","Gilliamella apicola",5,122852,3221450,3.8135622157724,5,122852,3.8135622157724
+"61","GiApicola_W8131.fna","Core","Gilliamella spp.","Gilliamella apicola",3,183474,2617516,7.0094700471745,2,145139,5.54491357454931
+"62","GiApicola_wkB7.fna","Core","Gilliamella spp.","Gilliamella apicola",1,42837,2901642,1.47630203863881,1,42837,1.47630203863881
+"63","GiApis_A412.fna","Core","Gilliamella spp.","Gilliamella apis",3,76151,2626243,2.89961743829493,1,33600,1.27939417639571
+"64","GiApis_AM1.fna","Core","Gilliamella spp.","Gilliamella apis",0,0,2438283,0,0,0,0
+"65","GiApis_ATSA1.fna","Core","Gilliamella spp.","Gilliamella apis",0,0,2467442,0,0,0,0
+"66","GiApis_ATSA2.fna","Core","Gilliamella spp.","Gilliamella apis",0,0,2462160,0,0,0,0
+"67","GiApis_ATSA3.fna","Core","Gilliamella spp.","Gilliamella apis",0,0,2467212,0,0,0,0
+"68","GiApis_ATSA4.fna","Core","Gilliamella spp.","Gilliamella apis",0,0,2460968,0,0,0,0
+"69","GiApis_ESL0169.fna","Core","Gilliamella spp.","Gilliamella apis",1,29091,2430778,1.19677732808179,1,29091,1.19677732808179
+"70","GiApis_ESL0172.fna","Core","Gilliamella spp.","Gilliamella apis",3,97674,2685772,3.63671972155492,2,78484,2.92221379923538
+"71","GiApis_M12G.fna","Core","Gilliamella spp.","Gilliamella apis",0,0,2388823,0,0,0,0
+"72","GiApis_NG1.fna","Core","Gilliamella spp.","Gilliamella apis",1,24184,2478810,0.975629435091839,1,24184,0.975629435091839
+"73","GiApis_NG3.fna","Core","Gilliamella spp.","Gilliamella apis",1,28791,2482892,1.15957520504315,1,28791,1.15957520504315
+"74","GiApis_NG4.fna","Core","Gilliamella spp.","Gilliamella apis",1,8500,2436247,0.348897299822227,0,0,0
+"75","GiApis_NO1.fna","Core","Gilliamella spp.","Gilliamella apis",2,20672,2516229,0.821546846491317,0,0,0
+"76","GiApis_NO12.fna","Core","Gilliamella spp.","Gilliamella apis",1,15842,2527217,0.626855549009048,0,0,0
+"77","GiApis_NO13.fna","Core","Gilliamella spp.","Gilliamella apis",1,21203,2533114,0.837032995751474,0,0,0
+"78","GiApis_NO14.fna","Core","Gilliamella spp.","Gilliamella apis",1,21628,2520079,0.85822706351666,0,0,0
+"79","GiApis_NO15.fna","Core","Gilliamella spp.","Gilliamella apis",1,24730,2520720,0.981068900948935,0,0,0
+"80","GiApis_NO16.fna","Core","Gilliamella spp.","Gilliamella apis",1,21193,2526241,0.838914418695603,0,0,0
+"81","GiApis_NO3.fna","Core","Gilliamella spp.","Gilliamella apis",0,0,2523863,0,0,0,0
+"82","GiApis_NO4.fna","Core","Gilliamella spp.","Gilliamella apis",2,15566,2519429,0.61783840703588,0,0,0
+"83","GiApis_P62G.fna","Core","Gilliamella spp.","Gilliamella apis",1,53195,2549106,2.08681004242272,1,53195,2.08681004242272
+"84","GiApis_P83G.fna","Core","Gilliamella spp.","Gilliamella apis",1,30155,2494021,1.20909166362272,1,30155,1.20909166362272
+"85","GiApis_SCGCABP17.fna","Core","Gilliamella spp.","Gilliamella apis",1,6731,1473857,0.456692881331093,0,0,0
+"86","LaApis_ESL0185.fna","Core","Firm-5","Lactobacillus apis",0,0,1683102,0,0,0,0
+"87","LaApis_Hma11.fna","Core","Firm-5","Lactobacillus apis",0,0,1717379,0,0,0,0
+"88","LaApis_LMG26964.fna","Core","Firm-5","Lactobacillus apis",0,0,1588648,0,0,0,0
+"89","LaHelsingborgensis_Bma5.fna","Core","Firm-5","Lactobacillus helsingborgensis",0,0,2020254,0,0,0,0
+"90","LaHelsingborgensis_ESL0183.fna","Core","Firm-5","Lactobacillus helsingborgensis",1,15649,1867232,0.838085465544721,0,0,0
+"91","LaKimbladii_Hma2.fna","Core","Firm-5","Lactobacillus kimbladii",0,0,2186983,0,0,0,0
+"92","LaKullabergensis_Biut2.fna","Core","Firm-5","Lactobacillus kullabergensis",1,41033,2118378,1.93700085631554,1,41033,1.93700085631554
+"93","LaKullabergensis_ESL0186.fna","Core","Firm-5","Lactobacillus kullabergensis",0,0,2018944,0,0,0,0
+"94","LaKunkeei_3L.fna","Core","Lactobacillus kunkeei","Lactobacillus kunkeei",1,43827,1574441,2.78365464314001,1,43827,2.78365464314001
+"95","LaKunkeei_AR114.fna","Core","Lactobacillus kunkeei","Lactobacillus kunkeei",0,0,1551609,0,0,0,0
+"96","LaKunkeei_EFB6.fna","Core","Lactobacillus kunkeei","Lactobacillus kunkeei",1,16226,1566851,1.0355802817243,0,0,0
+"97","LaKunkeei_Fhon2.fna","Core","Lactobacillus kunkeei","Lactobacillus kunkeei",1,49369,1608264,3.06970746096412,1,49369,3.06970746096412
+"98","LaKunkeei_KA01.fna","Core","Lactobacillus kunkeei","Lactobacillus kunkeei",1,15995,1575592,1.01517397905041,0,0,0
+"99","LaKunkeei_MP2_complete.fna","Core","Lactobacillus kunkeei","Lactobacillus kunkeei",1,55914,1614522,3.46319220177861,1,55914,3.46319220177861
+"100","LaKunkeei_NN17.fna","Core","Lactobacillus kunkeei","Lactobacillus kunkeei",0,0,1542588,0,0,0,0
+"101","LaKunkeei_NN19.fna","Core","Lactobacillus kunkeei","Lactobacillus kunkeei",0,0,1490423,0,0,0,0
+"102","LaKunkeei_NN20.fna","Core","Lactobacillus kunkeei","Lactobacillus kunkeei",0,0,1499235,0,0,0,0
+"103","LaKunkeei_NN5.fna","Core","Lactobacillus kunkeei","Lactobacillus kunkeei",0,0,1484706,0,0,0,0
+"104","LaMellifer_Bin4.fna","Core","Firm-4","Lactobacillus mellifer",0,0,1815047,0,0,0,0
+"105","LaMellis_ESL0294.fna","Core","Firm-4","Lactobacillus mellis",2,16581,1729063,0.958958696126168,0,0,0
+"106","LaMellis_ESL0295.fna","Core","Firm-4","Lactobacillus mellis",1,40663,1683724,2.41506327640397,0,0,0
+"107","LaMellis_ESL0394.fna","Core","Firm-4","Lactobacillus mellis",0,0,1743889,0,0,0,0
+"108","LaMellis_ESL0449.fna","Core","Firm-4","Lactobacillus mellis",3,123014,2152631,5.71458833399686,1,44759,2.07926950787199
+"109","LaMellis_Hon2.fna","Core","Firm-4","Lactobacillus mellis",0,0,1810599,0,0,0,0
+"110","LaMelliventris_ESL0184.fna","Core","Firm-5","Lactobacillus melliventris",2,80863,2036181,3.97130706945994,2,80863,3.97130706945994
+"111","LaMelliventris_ESL0393.fna","Core","Firm-5","Lactobacillus melliventris",1,36541,2014626,1.81378578455753,1,36541,1.81378578455753
+"112","LaMelliventris_Hma8.fna","Core","Firm-5","Lactobacillus melliventris",1,37862,2116151,1.78919179207911,1,37862,1.78919179207911
+"113","MePlutonius_119.fna","Pathogen","Pathogen","Melissococcus plutonius",1,31444,2039833,1.54149874033806,1,31444,1.54149874033806
+"114","MePlutonius_211.fna","Pathogen","Pathogen","Melissococcus plutonius",2,54892,2077318,2.64244569199323,1,34480,1.65983253406556
+"115","MePlutonius_493.fna","Pathogen","Pathogen","Melissococcus plutonius",2,57962,2075929,2.79209934443808,1,37550,1.80882872198423
+"116","MePlutonius_60.fna","Pathogen","Pathogen","Melissococcus plutonius",2,55758,2072518,2.69035057837857,1,34479,1.6636284944208
+"117","MePlutonius_7645B.fna","Pathogen","Pathogen","Melissococcus plutonius",2,54891,2045848,2.68304390159973,1,34479,1.68531582013913
+"118","MePlutonius_7656B.fna","Pathogen","Pathogen","Melissococcus plutonius",2,54891,2021336,2.71558019052745,1,34479,1.70575302671105
+"119","MePlutonius_82.fna","Pathogen","Pathogen","Melissococcus plutonius",1,73122,2047603,3.57110240608165,1,73122,3.57110240608165
+"120","MePlutonius_900.fna","Pathogen","Pathogen","Melissococcus plutonius",3,72361,2066856,3.50101797125683,1,32632,1.57882310136749
+"121","MePlutonius_ATCC35311.fna","Pathogen","Pathogen","Melissococcus plutonius",1,70810,2068732,3.42286966122243,1,70810,3.42286966122243
+"122","MePlutonius_B5.fna","Pathogen","Pathogen","Melissococcus plutonius",3,100634,2101145,4.78948382905511,2,80222,3.81801351168054
+"123","MePlutonius_DAT1033.fna","Pathogen","Pathogen","Melissococcus plutonius",2,57961,2075740,2.79230539470261,1,37549,1.80894524362396
+"124","MePlutonius_DAT561_2.fna","Pathogen","Pathogen","Melissococcus plutonius",1,19834,2067831,0.959169293815597,0,0,0
+"125","MePlutonius_DAT585.fna","Pathogen","Pathogen","Melissococcus plutonius",1,72053,2067800,3.48452461553342,1,72053,3.48452461553342
+"126","MePlutonius_DAT606.fna","Pathogen","Pathogen","Melissococcus plutonius",2,57961,2095784,2.76559989006501,1,37549,1.79164455879041
+"127","MePlutonius_H6.fna","Pathogen","Pathogen","Melissococcus plutonius",2,54891,2075507,2.64470319782106,1,34479,1.66123265303369
+"128","MePlutonius_L9.fna","Pathogen","Pathogen","Melissococcus plutonius",2,54891,2058945,2.66597699307169,1,34479,1.6745954845807
+"129","MePlutonius_S1.fna","Pathogen","Pathogen","Melissococcus plutonius",2,57962,2073864,2.79487950993894,1,37550,1.810629819506
+"130","PaApium_A29.fna","Core","Acetobacter","Bombella apis",1,27161,2008935,1.35200989579056,0,0,0
+"131","PaApium_AS1.fna","Core","Acetobacter","Bombella apis",2,26580,1853237,1.43424721177054,0,0,0
+"132","PaApium_B8.fna","Core","Acetobacter","Bombella apis",1,28774,2009090,1.43219069329896,0,0,0
+"133","PaApium_C6.fna","Core","Acetobacter","Bombella apis",1,28774,2009908,1.43160781488506,0,0,0
+"134","PaApium_G773c.fna","Core","Acetobacter","Bombella apis",2,59924,2011634,2.97887190214522,1,33108,1.64582622882691
+"135","PaLarvae_ATCC13537.fna","Pathogen","Pathogen","Paenibacillus larvae",5,227956,4520703,5.04249007289353,4,206705,4.57240831790985
+"136","PaLarvae_ATCC9545.fna","Pathogen","Pathogen","Paenibacillus larvae",6,274380,4289950,6.39587873984545,5,243937,5.6862434294106
+"137","PaLarvae_B3650.fna","Pathogen","Pathogen","Paenibacillus larvae",17,229309,4352378,5.26859110123248,2,48210,1.10767033561883
+"138","PaLarvae_BRL230010.fna","Pathogen","Pathogen","Paenibacillus larvae",21,365018,4033192,9.05035019408945,3,99610,2.46975596500241
+"139","PaLarvae_CCM38.fna","Pathogen","Pathogen","Paenibacillus larvae",7,309578,4444206,6.9658787193933,3,188816,4.24858793674281
+"140","PaLarvae_DSM25430_2.fna","Pathogen","Pathogen","Paenibacillus larvae",4,127839,4054587,3.15294751351987,2,87616,2.16091059336006
+"141","PaLarvae_DSM25719.fna","Pathogen","Pathogen","Paenibacillus larvae",13,634105,4579589,13.8463298780742,6,524743,11.4582989870925
+"142","PaLarvae_ERICI.fna","Pathogen","Pathogen","Paenibacillus larvae",6,253263,4288947,5.90501584654695,5,229288,5.3460208298214
+"143","PaLarvae_EricIII.fna","Pathogen","Pathogen","Paenibacillus larvae",8,451847,4701977,9.60972373960996,6,335481,7.13489240802326
+"144","PaLarvae_EricIV.fna","Pathogen","Pathogen","Paenibacillus larvae",6,213686,4378174,4.88071054279707,4,181431,4.14398788170594
+"145","PaLarvae_EricV.fna","Pathogen","Pathogen","Paenibacillus larvae",12,553475,4800872,11.5286347980117,9,458025,9.54045431746566
+"146","PaLarvae_MEX14.fna","Pathogen","Pathogen","Paenibacillus larvae",16,266236,4185110,6.36150543235423,3,94746,2.26388314763531
+"147","PaLarvae_SAG10367.fna","Pathogen","Pathogen","Paenibacillus larvae",10,499842,4794868,10.4245205498879,6,393553,8.20779633558213
+"148","SnAlvi_A1012.fna","Core","Snodgrassella alvi","Snodgrassella alvi",6,144538,2501655,5.77769516580024,1,40107,1.60321866924096
+"149","SnAlvi_A11.fna","Core","Snodgrassella alvi","Snodgrassella alvi",2,64132,2430265,2.63888917463733,1,48675,2.00286799999177
+"150","SnAlvi_A1112.fna","Core","Snodgrassella alvi","Snodgrassella alvi",5,117948,2500985,4.71606187162258,0,0,0
+"151","SnAlvi_A112.fna","Core","Snodgrassella alvi","Snodgrassella alvi",5,134432,2502286,5.37236750715146,1,40107,1.60281438652496
+"152","SnAlvi_A12.fna","Core","Snodgrassella alvi","Snodgrassella alvi",1,16883,2399919,0.703482075853393,0,0,0
+"153","SnAlvi_A2.fna","Core","Snodgrassella alvi","Snodgrassella alvi",2,60983,2425186,2.51457001648533,1,48675,2.00706255107856
+"154","SnAlvi_A212.fna","Core","Snodgrassella alvi","Snodgrassella alvi",5,132510,2502682,5.2947198245722,1,26794,1.07061144803854
+"155","SnAlvi_A3.fna","Core","Snodgrassella alvi","Snodgrassella alvi",2,58396,2428731,2.40438319435129,1,42939,1.76796030519642
+"156","SnAlvi_A5.fna","Core","Snodgrassella alvi","Snodgrassella alvi",3,56094,2430376,2.30803793322515,0,0,0
+"157","SnAlvi_A524.fna","Core","Snodgrassella alvi","Snodgrassella alvi",7,125162,2490743,5.02508689174275,1,26794,1.07574326215109
+"158","SnAlvi_A924.fna","Core","Snodgrassella alvi","Snodgrassella alvi",5,137604,2501107,5.50172383668512,1,40107,1.60356993923091
+"159","SnAlvi_Aw18.fna","Core","Snodgrassella alvi","Snodgrassella alvi",4,120775,2497111,4.83658916243611,0,0,0
+"160","SnAlvi_Aw20.fna","Core","Snodgrassella alvi","Snodgrassella alvi",4,116461,2498497,4.66124233889414,0,0,0
+"161","SnAlvi_E1.fna","Core","Snodgrassella alvi","Snodgrassella alvi",3,78728,2388322,3.29637293463779,1,45512,1.90560569303469
+"162","SnAlvi_ESL0196.fna","Core","Snodgrassella alvi","Snodgrassella alvi",2,72513,2446304,2.96418597198059,0,0,0
+"163","SnAlvi_MS13.fna","Core","Snodgrassella alvi","Snodgrassella alvi",3,75745,2500663,3.02899671007249,1,31001,1.23971122858218
+"164","SnAlvi_N23.fna","Core","Snodgrassella alvi","Snodgrassella alvi",3,50254,2421693,2.07515981588087,0,0,0
+"165","SnAlvi_N9.fna","Core","Snodgrassella alvi","Snodgrassella alvi",3,53803,2403335,2.23868083309235,0,0,0
+"166","SnAlvi_NS1.fna","Core","Snodgrassella alvi","Snodgrassella alvi",2,54136,2420873,2.23621809157275,1,34838,1.43906764212745
+"167","SnAlvi_NS2.fna","Core","Snodgrassella alvi","Snodgrassella alvi",3,51085,2421229,2.10987890860385,0,0,0
+"168","SnAlvi_NS3.fna","Core","Snodgrassella alvi","Snodgrassella alvi",2,51950,2463518,2.10877290119252,0,0,0
+"169","SnAlvi_NS4.fna","Core","Snodgrassella alvi","Snodgrassella alvi",3,50456,2421486,2.08367919533708,0,0,0
+"170","SnAlvi_NS5.fna","Core","Snodgrassella alvi","Snodgrassella alvi",2,51852,2417615,2.14475836723382,1,36995,1.53022710398471
+"171","SnAlvi_NW4.fna","Core","Snodgrassella alvi","Snodgrassella alvi",2,50060,2421251,2.06752624986009,1,34838,1.43884297827858
+"172","SnAlvi_NW7.fna","Core","Snodgrassella alvi","Snodgrassella alvi",2,93504,2423318,3.85851134683933,1,79095,3.26391336176267
+"173","SnAlvi_PEB0171.fna","Core","Snodgrassella alvi","Snodgrassella alvi",1,44093,2520622,1.74929045291202,1,44093,1.74929045291202
+"174","SnAlvi_PEB0178.fna","Core","Snodgrassella alvi","Snodgrassella alvi",1,42668,2524932,1.68986729147557,0,0,0
+"175","SnAlvi_SCGCJ21.fna","Core","Snodgrassella alvi","Snodgrassella alvi",2,40751,2334158,1.74585439374712,0,0,0
+"176","SnAlvi_SCGCO02.fna","Core","Snodgrassella alvi","Snodgrassella alvi",2,43875,1601393,2.73980215974467,0,0,0
+"177","SnAlvi_SCGCO11.fna","Core","Snodgrassella alvi","Snodgrassella alvi",1,31916,1374910,2.32131557701959,1,31916,2.32131557701959
+"178","SnAlvi_SCGCP14.fna","Core","Snodgrassella alvi","Snodgrassella alvi",2,18472,1307751,1.41250130950005,0,0,0
+"179","SnAlvi_wkB332.fna","Core","Snodgrassella alvi","Snodgrassella alvi",3,112049,2487419,4.50462909545999,2,86669,3.48429436295212
+"180","SnAlvi_wkB339.fna","Core","Snodgrassella alvi","Snodgrassella alvi",3,108321,2499917,4.33298385506399,2,81615,3.26470838831849
+"181","SnAlvi_wkB9.fna","Core","Snodgrassella alvi","Snodgrassella alvi",3,108598,2548535,4.26119319530632,1,37502,1.47151206477447

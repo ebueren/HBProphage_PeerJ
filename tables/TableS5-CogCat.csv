@@ -1,0 +1,18 @@
+"","deets","TotalORF.freq","broad_freq"
+"1","Amino acid (E)",16,0.133701011113897
+"2","Carbohydrate (G)",15,0.125344697919278
+"3","Coenzyme (H)",5,0.0417815659730927
+"4","Defense (V)",8,0.0668505055569483
+"5","Energy (C)",4,0.0334252527784741
+"6","Information processing (ALBY)",79,0.660148742374864
+"7","Inorganic ion (P)",7,0.0584941923623297
+"8","Lipid (I)",2,0.0167126263892371
+"9","Membrane (MW)",10,0.0835631319461853
+"10","Nucleotide (F)",6,0.0501378791677112
+"11","Phage moron, auxiliary metabolic gene and host takeover",279,2.33141138129857
+"12","Phage-associated",5518,46.1101362079051
+"13","Secondary metabolite (Q)",6,0.0501378791677112
+"14","Signaling (DTNZU)",25,0.208907829865463
+"15","Transcription (K)",94,0.785493440294142
+"16","Translation (JO)",30,0.250689395838556
+"17","Unknown (S, No Hits)",5863,48.9930642600485

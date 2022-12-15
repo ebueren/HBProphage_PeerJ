@@ -1,0 +1,285 @@
+---
+title: "03_descStats"
+output: html_document
+---
+```{r}
+
+##clear working environment
+rm(list=ls())
+
+#load library packages
+library(tidyr)
+library(tidyverse)
+library(dplyr)
+
+```
+
+## ALL PHAGE ##
+
+```{r}
+
+#set working directory if necessary, commented out 
+#setwd("~/Documents/Work/Chap1/HBProphage_PeerJ/")
+
+
+##### Load and Clean Datafiles  ######
+
+#hb1: all high confident honey bee phage
+hb1 <- read.csv("data/dc525_5kbdsDNAphage.csv", row.names=1)
+
+
+##create a list of individual isolates 
+hb1.isocount <- hb1
+hb1.isocount$placeholder <- 0
+hb1.isocount <- aggregate(hb1.isocount[,c(20)], by=list(hb1.isocount$FNA.name), FUN=sum) #181 isolates?
+
+
+
+```
+
+```{r}
+##make sure no_phage sequences have a length of 0
+hb1$length.checkv<- ifelse(hb1$phage_seqname=="no_phage", 0, hb1$length.checkv )
+```
+
+```{r}
+#create a tally count of phage (1) or no_phage (0)
+hb1$tally <- ifelse(hb1$phage_seqname=="no_phage", 0, 1)
+
+##count up number of phage
+numphage.ag <- aggregate(hb1[, c(20,12)], by=list(hb1$FNA.name, hb1$FinalGroup, hb1$Phylotype, hb1$Relationship, hb1$Size), FUN=sum)
+
+##rearrange columns
+numphage.ag <- numphage.ag[ , c(4, 3, 2, 1, 6, 7, 5 )]
+colnames(numphage.ag)[1:7] = c("Relationship", "Phylotype", "FinalGroup", "FNAName", "Num_of_phage", "phage.length.sum", "bac.size" )
+
+sum(numphage.ag$Num_of_phage) #sanity check to confirm the expected 431 phage total
+
+
+## determine how mnay phage were in core (269) and in pathogens (162)
+numphage.ag %>%  group_by(Relationship) %>% summarise(Phage.in.Relationship=sum(Num_of_phage)) 
+
+ 
+ 
+```
+
+
+
+```{r}
+
+## calculate total number of isolates per different groups (relationship to bee, phylotype, final genus/species group)
+isolate.num = numphage.ag %>% group_by(Relationship) %>% mutate(Relationship.size=n()) %>% 
+              group_by(Phylotype) %>% mutate(Phylotype.size=n()) %>%
+              group_by(FinalGroup) %>% mutate(FinalGroup.size=n())
+
+##remove duplicate categories of the same groups
+isolate.num <- isolate.num[!duplicated(isolate.num$FinalGroup), ] 
+
+isolate.num <- isolate.num[, -c(4:7)] ##remove non-isolate information
+
+
+write.csv(isolate.num, file ="data/IsolateCounts_dc525.csv")
+```
+
+##Phage Percent, Descp. Stats ##
+```{r}
+##calculate phage percent
+numphage.ag$percent <- numphage.ag$phage.length.sum/numphage.ag$bac.size*100
+
+##calc min/max/median and sd for total number of phage and percent composition of phage within an isolate per bacterial host species
+phage.num = numphage.ag %>% group_by(FinalGroup) %>% summarize(Min_NumPhage=min(Num_of_phage), Med_NumPhage=median(Num_of_phage), SD_NumPhage=sd(Num_of_phage), Max_NumPhage=max(Num_of_phage),
+  Min_PhagePercent=min(percent), Med_PhagePerc=median(percent), SD_PhagePercent=sd(percent), Max_PhagePercent=max(percent), 
+Min_BacLength=min(bac.size), Med_BacLength=median(bac.size), SD_BacLength=sd(bac.size), Max_BacLength=max(bac.size))
+
+```
+
+
+## Phage Lenth, Min/Max/Med ##
+```{r}
+
+##REMOVED all 0 samples so i could have just the smallest sized phage (instead of 0)
+
+phage.pos <- subset(hb1, hb1$tally==1)
+
+##calc min/max/median and sd for size of phage found in a group of bacterial host species
+phage.length = phage.pos %>% group_by(FinalGroup) %>% summarize(Min_PhageLength=min(length.checkv), Med_PhageLength=median(length.checkv), SD_PhageLength=sd(length.checkv), Max_PhageLength=max(length.checkv))
+
+```
+
+##Combine All Info##
+
+```{r}
+#merge two stat datasets together
+allstats <- merge(phage.num, phage.length, by="FinalGroup", all=TRUE)
+
+#set factors so that dataframe is consistent across graphs.
+allstats <- allstats %>%
+  mutate(FinalGroup =  factor(FinalGroup, levels = c('Bombella apis', 'Bartonella apis', 'Bifidobacterium asteroides', 'Bifidobacterium coryneforme', 'Bifidobacterium indicum', 'Frischella perrara', 'Lactobacillus mellifer', 'Lactobacillus mellis', 'Lactobacillus apis', 'Lactobacillus helsingborgensis', 'Lactobacillus kimbladii', 'Lactobacillus kullabergensis', 'Lactobacillus melliventris', 'Lactobacillus kunkeei', 'Gilliamella apis', 'Gilliamella apicola', 'Snodgrassella alvi',  'Melissococcus plutonius', 'Paenibacillus larvae'))) %>%
+  arrange(FinalGroup)
+
+
+write.csv(allstats, file="data/SD_IsolateNum_PhageRangeTable_dc525_ALL.csv")
+```
+
+
+
+
+```{r}
+
+##create the file "combee" = all phage data for individual isolates
+
+combee.all <- numphage.ag
+
+
+```
+
+
+
+#### Repeating above code but for intact phage only #######
+
+
+
+```{r}
+##clear working environment except for the final combee.all table
+rm(list = setdiff(ls(), "combee.all") )
+
+## hb1: high confident phage with isolate information
+hb1 <- read.csv("data/dc525_5kbdsDNAphage.csv", row.names=1)
+
+## intact: list of estimated intact or degraded for all high confident phage
+intact <- read.csv("data/IntactStatus.csv", row.names=1)
+
+## merge hb1 and intact
+hb1 <- merge(hb1, intact, by="phage_seqname", all=TRUE)
+
+```
+
+```{r}
+
+## remove all degraded phage by classifying them as "no_phage" in this scenario
+hb1$phage_seqname<- ifelse(hb1$intact_est=="Degraded", "no_phage", hb1$phage_seqname)
+hb1$phage_seqname<- ifelse(hb1$phage.filt=="no_phage", "no_phage", hb1$phage_seqname)
+
+
+##make sure no_phage have a length of 0
+hb1$length.checkv<- ifelse(hb1$phage_seqname=="no_phage", 0, hb1$length.checkv )
+
+
+hb1$tally <- ifelse(hb1$phage_seqname=="no_phage", 0, 1)
+
+
+```
+
+```{r}
+#create a tally count of phage (1) or no_phage (0)
+hb1$tally <- ifelse(hb1$phage_seqname=="no_phage", 0, 1)
+
+##count up number of phage
+numphage.ag <- aggregate(hb1[, c(21,12)], by=list(hb1$FNA.name, hb1$FinalGroup, hb1$Phylotype, hb1$Relationship, hb1$Size), FUN=sum)
+
+##rearrange columns
+numphage.ag <- numphage.ag[ , c(4, 3, 2, 1, 6, 7, 5 )]
+colnames(numphage.ag)[1:7] = c("Relationship", "Phylotype", "FinalGroup", "FNAName", "Num_of_phage", "phage.length.sum", "bac.size" )
+
+sum(numphage.ag$Num_of_phage) # 165 total intact phage 
+
+
+## determine how mnay phage were in core (90) and in pathogens (75)
+numphage.ag %>%  group_by(Relationship) %>% summarise(Phage.in.Relationship=sum(Num_of_phage)) 
+
+```
+
+
+
+
+##Number of Phage and Phage Composition (Percent), Descp. Stats ##
+```{r}
+##calculate phage percent
+numphage.ag$percent <- numphage.ag$phage.length.sum/numphage.ag$bac.size*100
+
+##calc min/max/median and sd for total number of phage and percent composition of phage within an isolate per bacterial host species
+phage.num = numphage.ag %>% group_by(FinalGroup) %>% summarize(Min_NumPhage=min(Num_of_phage), Med_NumPhage=median(Num_of_phage), SD_NumPhage=sd(Num_of_phage), Max_NumPhage=max(Num_of_phage),
+  Min_PhagePercent=min(percent), Med_PhagePerc=median(percent), SD_PhagePercent=sd(percent), Max_PhagePercent=max(percent), 
+Min_BacLength=min(bac.size), Med_BacLength=median(bac.size), SD_BacLength=sd(bac.size), Max_BacLength=max(bac.size))
+
+```
+
+
+
+## Phage Length, Min/Max/Med ##
+```{r}
+
+##REMOVED all 0 samples so i could have just the smallest sized phage (instead of 0)
+
+phage.pos <- subset(hb1, hb1$tally==1)
+
+##calc min/max/median and sd for size of phage found in a group of bacterial host species
+phage.length = phage.pos %>% group_by(FinalGroup) %>% summarize(Min_PhageLength=min(length.checkv), Med_PhageLength=median(length.checkv), SD_PhageLength=sd(length.checkv), Max_PhageLength=max(length.checkv))
+
+```
+
+
+##Combine All Info##
+
+```{r}
+#merge two stat datasets together
+allstats <- merge(phage.num, phage.length, by="FinalGroup", all=TRUE)
+
+#set factors so that dataframe is consistent across graphs.
+allstats <- allstats %>%
+  mutate(FinalGroup =  factor(FinalGroup, levels = c('Bombella apis', 'Bartonella apis', 'Bifidobacterium asteroides', 'Bifidobacterium coryneforme', 'Bifidobacterium indicum', 'Frischella perrara', 'Lactobacillus mellifer', 'Lactobacillus mellis', 'Lactobacillus apis', 'Lactobacillus helsingborgensis', 'Lactobacillus kimbladii', 'Lactobacillus kullabergensis', 'Lactobacillus melliventris', 'Lactobacillus kunkeei', 'Gilliamella apis', 'Gilliamella apicola', 'Snodgrassella alvi',  'Melissococcus plutonius', 'Paenibacillus larvae'))) %>%
+  arrange(FinalGroup)
+
+
+write.csv(allstats, file="data/SD_IsolateNum_PhageRangeTable_dc525_INTACT.csv")
+```
+
+
+
+##Combinee all numerical/percent phage information and just intact phage information:
+```{r}
+##create a combee for intact results
+combee.intact <- numphage.ag
+
+##remove redundant columns and rename relevant columns to intact specific
+combee.intact <- combee.intact[,c(4,5,6,8)]
+colnames(combee.intact)[2:4] = c("NumIntPhage", "SumIntPhage", "IntPerc")
+
+#merge combee.all and combee.intact
+combee <- merge(combee.all, combee.intact, by="FNAName", all=TRUE)
+
+#create the file "combee" = total phage and all intact phage data for individual isolates
+write.csv(combee, file="data/Combee_dc525.csv")
+
+
+
+```
+
+
+```{r}
+##load intact combee
+IntCombee <- read.csv("data/Combee_dc525.csv", row.names=1)
+
+## create marker for if an estimated intact phage and set marker to 1 if intact is present 
+IntCombee$int.present <- 0
+IntCombee$int.present <- ifelse(IntCombee$NumIntPhage>0, 1, 0) 
+
+##add up the number of isolates per host with at least one intact phage
+IntCombee <- aggregate(IntCombee[, 12], by=list(IntCombee$FinalGroup), FUN=sum)
+
+colnames(IntCombee)[1:2] = c("FinalGroup", "Num_Isolates_With_Intact")
+
+##load the total number of isolates per host analyzed
+iso.num <- read.csv("data/IsolateCounts_dc525.csv", row.names=1)
+iso.num <- iso.num[,c(3,6)]
+
+#merge Inumber of isolates with intact and total isolate numbers
+IntFract <- merge(iso.num, IntCombee, by="FinalGroup", all=TRUE)
+
+# identify fraction of isolates with intact compared to all isolates
+IntFract$PercentIntGenome <- IntFract$Num_Isolates_With_Intact/IntFract$FinalGroup.size*100
+
+write.csv(IntFract, file="data/IntactFractioninGenomes_dc525.csv")
+```
+
+

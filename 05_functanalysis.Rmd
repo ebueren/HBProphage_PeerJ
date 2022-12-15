@@ -1,0 +1,143 @@
+---
+title: "05_functanalysis"
+output: html_notebook
+---
+```{r}
+##clear working environment
+rm(list=ls())
+
+#load library packages
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(cowplot)
+library(microshades)
+
+
+```
+
+```{r}
+#set working directory if necessary, commented out 
+#setwd("~/Documents/Work/Chap1/HBProphage_PeerJ/")
+
+
+##### Load and Clean Datafiles  ######
+##hmm.derep: cleaned protein analysis output (prokka/eggnog) from 02_functionalcleaning.rmd, not dereplicated but will immediately subset to remove non representative phage.
+hmm <- read.csv("data/func/hmm_cleaned.csv", row.names=1)
+hmm<- subset(hmm, hmm$representative!="NO") ##dereplicate 
+```
+
+
+```{r}
+
+##create a tally marker for each protein
+hmm$tally<- 1
+
+##Here I create several tables which are useful as generally reference for hit frequency (without considering specific bacterial hosts). They sum up the number of proteins that hit to each category (ex: Phage-associated, Metabolism, etc) within a column (ex: COG.broad), and determine the frequency that proteins hit to those categories (sum / total proteins).
+
+## Broad COG category frequency across all proteins
+broad_All <- hmm %>%
+  group_by(COG.broad) %>%
+  summarise(TotalORF.freq = sum(tally)) %>%
+  mutate(broad_freq = TotalORF.freq/11967*100)
+write.csv(broad_All, "tables/TableS4-BroadEggnog.csv")
+
+## Original (before I combined similar COG categories) COG Categories across all proteins
+cat_All <- hmm %>%
+  group_by(Cog.cat) %>%
+  summarise(TotalORF.freq = sum(tally)) %>%
+  mutate(broad_freq = TotalORF.freq/11967*100)
+
+##Detailed PHROG and original COG categories across all proteins
+xtremedeets_all <- hmm %>%
+  group_by(xtremedeets) %>%
+  summarise(TotalORF.freq = sum(tally)) %>%
+  mutate(broad_freq = TotalORF.freq/11967*100)
+
+#Grouped Phage-associated category and groupped COG categories across all proteins
+deets_all <- hmm %>%
+  group_by(deets) %>%
+  summarise(TotalORF.freq = sum(tally)) %>%
+  mutate(broad_freq = TotalORF.freq/11967*100)
+
+write.csv(deets_all, "tables/TableS5-CogCat.csv")
+
+```
+
+Create stacked bar graphs 
+```{r}
+
+##Create a table similar to above which sums the total number hits to a specific category for each bacterial species. 
+## Each row is specifically the number of proteins that hit to that combination of COG.broad/deets/xtremedeets/phrog_Category/relationship/phylotype/FinalGroup/phylotype, so if you want to know how many Bartonella apis proteins were classified as metabolism broadly by COG, you'd need to subset for both COG.broad==METABOLISM & FinalGroup==Bartonella apis. The new.fq or perc.fq values from all individual rows that hit to both these strings would then be added up to give you the total number of proteins / frequency of hits.
+
+noggcat_new <- hmm %>%
+  group_by(COG.broad, deets, xtremedeets, phrog_category, Relationship, Phylotype, FinalGroup) %>%
+  summarise(new.freq = sum(tally))
+
+
+##sum how many proteins were predicted for each host species group
+totalhits_per_species <- hmm %>%
+  group_by(FinalGroup) %>%
+  summarise(totalhits = sum(tally))
+
+##merge total proteins per host with the number of proteins per specific classification categories
+usethis <- merge(totalhits_per_species, noggcat_new, by="FinalGroup", all=TRUE)
+usethis <- subset(usethis, usethis$FinalGroup!="NA")
+
+
+##divide individual category of proteins by the total number of proteins analyzed for that bacterial host.
+usethis$perc.fq <- usethis$new.freq/usethis$totalhits*100
+
+write.csv(usethis, "tables/TableS6-BactCog.csv")
+```
+
+##Order levels for graph
+```{r}
+
+##Set specific order for bacterial hosts to appear on graphs
+usethis$FinalGroup <- factor(usethis$FinalGroup, levels = c('Bifidobacterium asteroides', 'Bifidobacterium coryneforme', 'Bifidobacterium indicum', 'Lactobacillus mellifer', 'Lactobacillus mellis', 'Lactobacillus apis', 'Lactobacillus helsingborgensis', 'Lactobacillus kimbladii', 'Lactobacillus kullabergensis', 'Lactobacillus melliventris', 'Lactobacillus kunkeei', 'Frischella perrara', 'Bombella apis', 'Snodgrassella alvi', 'Bombella sp.', 'Bartonella apis', 'Gilliamella apis', 'Gilliamella apicola', 'Melissococcus plutonius', 'Paenibacillus larvae'),ordered = TRUE)
+
+usethis$deets  <- factor(usethis$deets, levels = c("Amino acid (E)", "Carbohydrate (G)", "Coenzyme (H)", "Energy (C)", "Inorganic ion (P)", "Lipid (I)", "Nucleotide (F)", "Secondary metabolite (Q)", "Defense (V)", "Information processing (ALBY)", "Membrane (MW)", "Signaling (DTNZU)", "Translation (JO)", "Transcription (K)", "Phage moron, auxiliary metabolic gene and host takeover", "Phage-associated", "Unknown (S, No Hits)"))
+```
+
+
+
+
+```{r}
+
+##Create graph theme
+theme2 <- theme_linedraw() +
+  theme(
+      legend.position="bottom", 
+      legend.title = element_blank(),
+      legend.text = element_text(size=11),
+      plot.title = element_text(size=15),
+      axis.text.x = element_text(angle=0, size= 11, vjust=0.5, hjust=0),
+      axis.text.y = element_text(size=11),
+      axis.title.y = element_text(size=11),
+      axis.ticks.length = unit(.3, "cm"))
+
+
+##Fig3: Functional Analysis of Prophage Regions
+
+##Create palettes for graphs
+#palette for detailed categories graph
+deetscolors <-c(microshades_palette("micro_cvd_green", 4, lightest = FALSE), #metabolism
+               microshades_palette("micro_cvd_turquoise", 4, lightest = FALSE), #metab 
+               microshades_palette("micro_cvd_purple", 4, lightest = FALSE), # cellular
+                microshades_palette("micro_cvd_blue", 2, lightest = TRUE), ##info
+                microshades_palette("micro_cvd_orange", 1, lightest = TRUE), ##phage
+               microshades_palette("micro_cvd_gray", 3, lightest = FALSE)) ##unknown
+
+
+
+usethis.deets <- subset(usethis, usethis$COG.broad!="POORLY CHARACTERIZED" ) ##remove unknown hits for visual ease
+
+#Fig3 graph
+deets.gg <- ggplot(data=usethis.deets, aes(fill=deets, x=FinalGroup, y=perc.fq)) + geom_bar(stat="identity") + theme2 + ggtitle("Functional Analysis of Prophages") + coord_flip() + xlab("Bacterial Host") +ylab("Percent of Prophage Total Genes") +theme(legend.position="bottom", legend.title = element_blank()) + scale_fill_manual(values = deetscolors) 
+
+deets.gg
+ggsave(deets.gg, filename="figs/Fig3.png", width=14, height=9)
+
+```
+

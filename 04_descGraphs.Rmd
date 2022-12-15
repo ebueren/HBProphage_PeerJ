@@ -1,0 +1,181 @@
+---
+title: "04_descGraphs"
+output: html_notebook
+---
+
+```{r}
+
+##clear working environment
+rm(list=ls())
+
+#load library packages
+library(tidyr)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(cowplot)
+library(PNWColors)
+library(cocor)
+
+#set working directory if necessary, commented out 
+#setwd("~/Documents/Work/Chap1/HBProphage_PeerJ/")
+
+
+pal2=pnw_palette("Sailboat",19, type = "continuous") ##color palette
+
+
+```
+
+```{r}
+
+##### Load and Clean Datafiles  ######
+
+
+## Combee: information about the number of total and intact prophages and prophage composition per individual bacterial genome
+
+Combee <- read.csv("data/Combee_dc525.csv", row.names=1, na.strings=c("","NA")) ##cleaned output 
+
+Combee[is.na(Combee)] <- 0  ## make sure any NAs are switched to 0.
+
+Combee$IntBin_VLP3 <- ifelse(Combee$NumIntPhage>0, "One or More Intact Prophage", "No Intact Prophage")
+
+
+##Set specific order for bacterial hosts to appear on graphs
+Combee$FinalGroup <- factor(Combee$FinalGroup, levels = c('Bifidobacterium asteroides', 'Bifidobacterium coryneforme', 'Bifidobacterium indicum', 'Lactobacillus mellifer', 'Lactobacillus mellis', 'Lactobacillus apis', 'Lactobacillus helsingborgensis', 'Lactobacillus kimbladii', 'Lactobacillus kullabergensis', 'Lactobacillus melliventris', 'Lactobacillus kunkeei', 'Frischella perrara', 'Bombella apis', 'Snodgrassella alvi', 'Bombella sp.', 'Bartonella apis', 'Gilliamella apis', 'Gilliamella apicola', 'Melissococcus plutonius', 'Paenibacillus larvae'),ordered = TRUE)
+
+
+```
+
+```{r}
+## set ggpplot themes 
+
+##default theme (for fig1, correlations)
+theme1 <- theme(panel.grid.major=element_line(size=(0.1), color="grey"),
+       plot.title = element_text(size=14),
+      axis.text.x = element_text(size= 12),
+      axis.text.y = element_text(size=12),
+      axis.title.y = element_text(size=10),
+      axis.title.x = element_text(size=10),
+    ) 
+ 
+##for fig2
+vertheme <- theme(
+      legend.position="none", 
+      plot.title = element_text(size=10),
+      axis.text.x = element_text(size= 10, angle=0, vjust=0.5),
+      axis.text.y = element_text(size=10),
+      axis.title.y = element_text(size=8),
+      axis.title.x = element_text(size=8),
+      axis.ticks.length = unit(.3, "cm")
+    ) 
+
+```
+
+
+### Figure 2:
+```{r}
+##Fig 2A: Spearman Correlation of bacterial size to Num of Phage in a genome, R=0.55, p=1.6e-15
+p1 <-ggscatter(Combee, x = "bac.size", y = "Num_of_phage", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "spearman",
+          xlab = "Size of Bacterial Genome (bp)", ylab = "Number of Phage") +
+          scale_x_continuous(limits=c(1e+06, 5e+06), breaks=seq(1e+06,5e+06,1e+06)) + scale_y_continuous(limits=c(-2, 22), breaks=seq(-2, 22, 2))  +
+           ggtitle("A. Correlation Between Bacterial Genome Size and Total Number of Predicted Prophages")+ theme1
+p1
+
+##Fig 2B: Spearman Correlation of bacterial size to prophage composition in a genome, R=0.34, p=2e-6
+p2 <-ggscatter(Combee, x = "bac.size", y = "percent", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "spearman",
+          xlab = "Size of Bacterial Genome (bp)", ylab = "Prophage Composition") +
+          scale_x_continuous(limits=c(1e+06, 5e+06), breaks=seq(1e+06,5e+06,1e+06)) +
+          scale_y_continuous(limits=c(-2, 14), breaks=seq(-2, 14, 2)) + ggtitle("B. Correlation Between Bacterial Genome Size and Total Prophage Composition (%)") + theme1
+p2
+##Spearman correlation of num of phage to prophage composition, not a figure in the paper but visualized and calculated for cocor below.
+## R=0.86, p<2.2e-16
+p3 <-ggscatter(Combee, x = "Num_of_phage", y = "percent", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "spearman",
+          xlab = "Size of Bacterial Genome (bp)", ylab = "Prophage Composition") +
+          scale_x_continuous(limits=c(0,22), breaks=seq(0,22,2)) +
+          scale_y_continuous(limits=c(0, 14), breaks=seq(0, 14, 2)) + theme1
+p3
+##Fig2: Combine Fig2A and Fig2B
+f1 <- plot_grid(p1, p2, ncol = 1, align= "hv")
+f1
+
+ggsave("figs/Fig2.png", width = 10.5, height = 7)
+
+##Comparison of Spearman's Correlations using cocor:
+#Bac.size x Prophage num: 0.55
+#Bac.size x Prophage comp:0.34
+#Prophage num x comp: 0.86
+##size of n: 181 isolates
+
+cocor.dep.groups.overlap(.55, .34, .86, 181)
+
+## meng1992: Meng, Rosenthal, and Rubin's z (1992) output:  z = 5.9819, p-value = 0.0000
+  #Null hypothesis rejected
+  #95% confidence interval for r.jk - r.jh: 0.1777 0.3509
+  #Null hypothesis rejected (Interval does not include 0)
+
+```
+Fig 1:
+
+```{r}
+
+
+##Fig 1A: Number of prophages per isolate
+F1A <- ggplot(Combee, aes(x = FinalGroup, y = Num_of_phage, fill = FinalGroup  )) + geom_boxplot(outlier.size = 0, fill=c("#6E7CB9", "#718DC0", "#759FC8", "#78B1D0", "#84C0D0", "#9CCAC6", "#B3D5BB", "#CBDFB1", "#D8E0AA", "#E2DEA4", "#ECDC9D", "#F4D797", "#F0C691", "#EDB48A", "#E9A383", "#E49883", "#DE9186", "#D88A89", "#D2848D")) +scale_fill_manual(values=pal2) +  geom_point(pch = 21, size= 1.25, position=position_dodge2(width=.5)) + scale_y_continuous(limits=c(0, 22), breaks=seq(0,22,2)) + ylab("Number of Total Prophage") +vertheme + ggtitle("A. Total Number of Predicted Prophage") + coord_flip() + xlab("Bacterial Isolate")
+
+
+##Fig1B: Total prophage composition per isolate
+F1B <- ggplot(Combee, aes(x = FinalGroup, y = percent, fill = FinalGroup )) + geom_boxplot(outlier.size = 0, fill=c("#6E7CB9", "#718DC0", "#759FC8", "#78B1D0", "#84C0D0", "#9CCAC6", "#B3D5BB", "#CBDFB1", "#D8E0AA", "#E2DEA4", "#ECDC9D", "#F4D797", "#F0C691", "#EDB48A", "#E9A383", "#E49883", "#DE9186", "#D88A89", "#D2848D"))  +scale_fill_manual(values=pal2) +   geom_point(pch = 21, size= 1.25, position=position_dodge2(width=.5)) + scale_y_continuous(limits=c(0, 14), breaks=seq(0,14,1)) + ylab("Total Prophage Composition (%)") +vertheme + ggtitle("B. Total Predicted Prophage Composition")   + theme(legend.position="none", axis.text.y=element_blank()) + coord_flip() + xlab("")
+
+
+
+
+##Fig 1C: Number of intact prophages per isolate
+
+F1C <- ggplot(Combee, aes(x = FinalGroup, y = NumIntPhage, fill = FinalGroup  )) + geom_boxplot(outlier.size = 0, fill=c("#6E7CB9", "#718DC0", "#759FC8", "#78B1D0", "#84C0D0", "#9CCAC6", "#B3D5BB", "#CBDFB1", "#D8E0AA", "#E2DEA4", "#ECDC9D", "#F4D797", "#F0C691", "#EDB48A", "#E9A383", "#E49883", "#DE9186", "#D88A89", "#D2848D")) +scale_fill_manual(values=pal2) +  geom_point(pch = 21, size= 1.25, position=position_dodge2(width=.5)) + scale_y_continuous(limits=c(0, 22), breaks=seq(0,22,2)) + ylab("Number of Intact Prophage") +vertheme + ggtitle("C. Number of Estimated Intact Prophage") + coord_flip() + xlab("Bacterial Isolate")
+
+
+
+
+##Fig1D: Total intact prophage composition per isolate
+F1D <- ggplot(Combee, aes(x = FinalGroup, y = IntPerc , fill = FinalGroup )) + geom_boxplot(outlier.size = 0, fill=c("#6E7CB9", "#718DC0", "#759FC8", "#78B1D0", "#84C0D0", "#9CCAC6", "#B3D5BB", "#CBDFB1", "#D8E0AA", "#E2DEA4", "#ECDC9D", "#F4D797", "#F0C691", "#EDB48A", "#E9A383", "#E49883", "#DE9186", "#D88A89", "#D2848D")) +scale_fill_manual(values=pal2) +  geom_point(pch = 21, size= 1.25, position=position_dodge2(width=.5)) + scale_y_continuous(limits=c(0, 12), breaks=seq(0,12,1)) + ylab("Intact Prophage Composition (%)") +vertheme + ggtitle("D. Estimated Intact Prophage Composition")  + theme(legend.position="none", axis.text.y=element_blank()) + coord_flip() + xlab("")
+
+
+##Combine Fig1 A-D. Note that Fig1A and Fig1C have the y-axis, which is why they are larger widths.
+
+Fig1 <- ggdraw(xlim=c(0,8), ylim=c(0,10)) +
+  draw_plot(F1A, x = 0, y = 5, width = 4.9, height = 5) +
+  draw_plot(F1B, x = 4.9, y =5 , width = 3.1, height = 5)+
+  draw_plot(F1C, x = 0, y =0 , width = 4.9, height = 5)+
+  draw_plot(F1D, x = 4.9, y =0 , width = 3.1, height = 5)
+
+Fig1
+
+ggsave(Fig1, filename="figs/Fig1.png", width=8, height=10)
+
+```
+###
+```{r}
+## Statistics for Number of Phage per Isolate ~ Bacterial Host.
+
+ggqqplot(Combee$Num_of_phage) ## does not look normal
+shapiro.test(Combee$Num_of_phage) ##fails shapiro test, not normal
+
+#Data is not normal, so instead of one-way anova, Kruskal-Wallis chi-squared = 110.3, df = 18, p-value = 2.766e-15 
+kruskal.test(Num_of_phage ~ FinalGroup, data = Combee)
+
+
+## Statistics for Total Phage Composition per Isolate ~ Bacterial Host.
+ggqqplot(Combee$percent) ## does not look normal
+shapiro.test(Combee$percent) ##not normal,  p-value = 5.795e-13
+
+#Data is not normal, so instead of one-way anova, Kruskal-Wallis chi-squared = 95.104, df = 18, p-value = 1.73e-12
+kruskal.test(percent ~ FinalGroup, data = Combee)
+
+```

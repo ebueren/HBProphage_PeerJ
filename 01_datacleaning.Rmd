@@ -1,0 +1,375 @@
+---
+title: "01_datacleaning"
+output: html_notebook
+---
+```{r}
+##clear working environment
+rm(list=ls())
+
+##load packages
+library(dplyr)
+library(tidyverse)
+
+#set working directory if necessary, commented out 
+#setwd("~/Documents/Work/Chap1/HBProphage_PeerJ/")
+
+##### Load and Clean Isolate Metadata Information  ######
+
+## NCBI: metadata from NCBI about individual genomes run through phage analysis. at this stage, isolates include bee bacterial isolates associated with non-honey bee species which will need to be removed (below).
+NCBI <- read.csv("data/raw/NCBIreference_07312020.csv", header=TRUE) 
+
+## bacterial size: length of the original individual bacterial isolate (via length.perl script)
+bacterialsize <- read.csv("data/raw/GenomeLengths_v4.csv")
+
+```
+
+
+##Create NCBI Info & remove duplicate isolates and non-honey bee sequences
+```{r}
+
+##Manually remove duplicate isolates from the datasets, keeping the more recently sequenced or complete representative. 
+
+dupdelete3 <- NCBI
+colnames(dupdelete3)[1]=c("FNA.name")
+
+dupdelete3$dele <- 0
+
+##duplicate isolate strains
+dupdelete3$dele <- ifelse(dupdelete3$FNA.name=="BiAsteroides_DSM20089.fna"| dupdelete3$FNA.name== "BiIndicum_LMG11587_contig.fna"| dupdelete3$FNA.name== "CoSp_ESL0284contig.fna"| dupdelete3$FNA.name=="LaKunkeei_MP2_2_contigs.fna"| dupdelete3$FNA.name=="MePlutonius_DAT561.fna"|dupdelete3$FNA.name=="PaLarvae_DSM25430_1.fna", 1, 0)
+
+cleaned <- subset(dupdelete3, dupdelete3$dele == 0)
+
+##filter to include only results with honey bee associated samples (indicated throughout ncbi columns)
+
+hb1 <- cleaned %>%
+   filter(rowSums(across(everything(), ~grepl("honey bee|honeybee|honeybees|apis mellifera|a. mellifera|AFB|EFB|foulbrood|melissococcus|paenibacillus", .x, ignore.case=TRUE))) > 0)
+
+hb1<- hb1[, -c(115)] ##delete the "delete" column for duplicates so it doesn't gunk up the remaining code
+
+hb1 <- hb1[,c(1:3)] ##shortened list of honey bee isolates
+
+hb1$hb <- "from_hb"
+
+```
+
+
+
+##Parse NCBI Metadata for Genus/Species information
+```{r}
+##new datatable
+GenSp1 <- hb1
+
+# Duplicate column 14 into a new col named "Original_BS"
+GenSp1$Orig_BS <- GenSp1[, c(2)]
+
+
+#Separate the columnn Organism_BS into two parts (Genus and Species), split via the first space (any additional spaces are ignored and removed/discarded)
+##Warning: Expected 2 pieces is OKAY since I only want the first 2 pieces, the rest is meant to be discarded.
+GenSp1 <- separate(data = GenSp1, col = Organism_BS, into = c("Genus", "SpecOnly"), sep = " ")
+
+#Create a new column called GenandSpec, fill it with nothing
+GenSp1$GenandSpec <- ""
+
+#Unite the new single word columns, Genus and SpecOnly to get a "cleaned up" genus and species name in column GenandSpec.
+GenSp1 <- unite(GenSp1, GenandSpec, Genus:SpecOnly, sep = " ", remove = FALSE, na.rm = FALSE)
+
+#Remove the species only, which is not useful at this time
+#GenSp1 <- GenSp[, -c(7)]
+
+groups <- GenSp1
+
+groups$FinalGroup <- groups$GenandSpec
+groups$Phylotype <- groups$GenandSpec
+groups$Relationship <- groups$GenandSpec
+
+## flag isolates which did not have a specified bacterial species for removal
+groups$Remove <- ifelse(groups$GenandSpec == "Commensalibacter sp." | groups$GenandSpec == "Bombella sp.", 1, 0) 
+
+
+
+```
+
+
+Manually adjust the categories of FinalGroup, Phylotype, Relationship based on individual species information.
+```{r}
+##FinalGroup Adjust
+#note: P. apium and Bombella apis have been reclassified to be all Bombella apis, merge them.
+groups$FinalGroup <- ifelse(groups$GenandSpec == "Parasaccharibacter apium", "Bombella apis", groups$GenandSpec) 
+
+
+#Phylotype adjust: Manually classify the phylotype based on what the Final Group is.
+
+groups$Phylotype <- ifelse(groups$FinalGroup == "Bartonella apis", "Bartonella apis", groups$Phylotype)
+groups$Phylotype <- ifelse(groups$FinalGroup == "Bifidobacterium asteroides" | groups$FinalGroup == "Bifidobacterium coryneforme" | groups$FinalGroup == "Bifidobacterium indicum"  , "Bifidobacterium spp.", groups$Phylotype)
+groups$Phylotype <- ifelse(groups$FinalGroup == "Bombella apis", "Acetobacter", groups$Phylotype)
+groups$Phylotype <- ifelse(groups$FinalGroup == "Frischella perrara", "Frischella perrara", groups$Phylotype)
+groups$Phylotype <- ifelse(groups$FinalGroup == "Gilliamella apicola", "Gilliamella spp.", groups$Phylotype)
+groups$Phylotype <- ifelse(groups$FinalGroup == "Gilliamella apis", "Gilliamella spp.", groups$Phylotype)
+groups$Phylotype <- ifelse(groups$FinalGroup == "Lactobacillus kunkeei", "Lactobacillus kunkeei", groups$Phylotype)
+groups$Phylotype <- ifelse(groups$FinalGroup == "Lactobacillus mellifer" | groups$FinalGroup == "Lactobacillus mellis", "Firm-4", groups$Phylotype)
+groups$Phylotype <- ifelse(groups$FinalGroup == "Lactobacillus apis" | groups$FinalGroup == "Lactobacillus helsingborgensis"| groups$FinalGroup == "Lactobacillus kimbladii" | groups$FinalGroup == "Lactobacillus kullabergensis" | groups$FinalGroup == "Lactobacillus melliventris",   "Firm-5", groups$Phylotype)
+groups$Phylotype <- ifelse(groups$FinalGroup == "Snodgrassella alvi", "Snodgrassella alvi", groups$Phylotype)
+groups$Phylotype <- ifelse(groups$FinalGroup == "Melissococcus plutonius" |groups$FinalGroup == "Paenibacillus larvae", "Pathogen", groups$Phylotype)
+
+##Relationship adjust
+
+groups$Relationship <- ifelse(groups$Phylotype != "Pathogen", "Core", groups$Relationship)
+groups$Relationship <- ifelse(groups$Remove == "1", "Remove_unknowncommensal", groups$Relationship)
+groups$Relationship <- ifelse(groups$Phylotype == "Pathogen", "Pathogen", groups$Relationship)
+
+HBall <- subset(groups, groups$Remove==0) ##181 honey bee associated bacterial isolates in total.
+HBall <- HBall[,c(2,10,9,8,1,6)] ##remove unecessary columns
+
+```
+
+Add in bacterial isolate length
+```{r}
+HBall <- merge(HBall, bacterialsize, by.x="FNA.name", by.y="FNAName", all.y=FALSE)
+```
+
+
+#### HONEY BEE PHAGE ANALYSIS #### 
+
+```{r}
+
+##clear workspace except for HB.isos and HBall
+rm(list = setdiff(ls(), "HBall") )
+
+##create list of HB.isolates 
+HB.isos <- HBall[,c(1,2)]
+
+## access: NCBI accession numbers matching to individual genome FASTA header names to match to VS2 output
+access <- read.csv("data/raw/Access_FileNameMatch.csv", header=FALSE) 
+colnames(access)[1:2]=c("bact_access", "FNA.name")
+
+## vs2: virsorter2 output from all genomes in NCBI/access list.
+vs2 <- read.delim("data/raw/vs2_rd1final-viral-score.tsv")
+
+## checkv: length of virsorter2 phage regions after checkv trimming (via length.perl script)
+checkv <- read.delim("data/raw/checkv_beerd1_length.txt", header= TRUE)
+checkv$checkv_trimmed <- ifelse(checkv$input_vs2==checkv$checkv_name, "same_as_vs2", "trimmed_by_checkv")  ##denote if checkv trimmed the vs2 sequences or left it the same
+##keep track of any sequences that checkv splits into more than 1 contig
+checkv$checkv.contigs <- 1  
+checkv.ag <- aggregate(checkv[,c(5)], by=list(checkv$input_vs2), FUN=sum)
+checkv.ag$checkv_split <- ifelse(checkv.ag$x>1, "split_by_checkv", "no")
+colnames(checkv.ag)[1:2] = c("input_vs2", "checkv.contigs")
+checkv<- checkv[,c(1:4)]
+checkv<-merge(checkv, checkv.ag, by="input_vs2")
+
+## vib: VIBRANT genome quality output of checkv-trimmed virsorter2 regions which were categorized as either lytic or lysogenic phage.
+##note that vibrant was only used as quality control, so any fragmentation or further trimming of the phage regions via VIBRANT was not used in downstream analysis. 
+vib <- read.delim("data/raw/rd3_VIBRANT_genome_quality_rd2_checkvbee.tsv")  
+vib$type_vib <- "virus"  ##reclassify all lytic/lysogenic phage as virus. 
+vib<- vib[,c(2,3)] ## only keep data relevant from vibrant (remove vibrant scaffold/fragmentation information)
+vib$split.tally <- 1  ##create a counter to keep track of where vibrant fragmented phage sequences (not used in analysis but for peace of mind)
+vib <- aggregate(vib[,c(3)], by=list(vib$checkv_input, vib$type_vib), FUN=sum) ##merge fragmented by VIBRANT sequences back into a single checkV entity, with vib.frag.count noting how many pieces vibrant split it into.
+colnames(vib)[1:3] = c("checkv_input", "prediction", "vib.frag.count")  
+vib$vs2_og_input <-  gsub('(.*)_fragment\\w+', '\\1', vib$checkv_input) ##create column with the original checkv trimmed input.
+
+```
+
+
+
+
+### merge together vs2, checkv and vibrant phage output with accession numbers
+```{r}
+vs2 <- merge(vs2, access, by="bact_access", all.x=TRUE, all.y=FALSE) ##
+combined <- merge(checkv, vs2, by.y="phage_seqname", by.x="input_vs2", all=TRUE)
+combined <- merge(combined, vib, by.x="checkv_name", by.y="checkv_input", all=TRUE)
+combined$prediction[is.na(combined$prediction)] <- "vibrant_not_run_or_didn't_like_it"
+
+
+```
+
+
+```{r}
+##merge NCBI metadata (HBall) with combined phage output (combined)
+combined <- merge(HBall, combined, by="FNA.name", all.x=TRUE, all.y=TRUE)
+
+##remove phage not originating from the finalized honey bee set of bacterial isolates
+combined <- subset(combined, combined$hb=="from_hb")
+```
+
+
+```{r}
+
+phage <- combined[,- c(2:8)] ##remove species isolate info temporarily (makes merging easier)
+
+
+phage$phage_filt <- 0 ##create a column to track what stage phage filtering a phage was considered high-confident
+
+
+##Phage filtering method ###
+## 1) over 5000bp and must have originally been classified as dsDNAphage by VirSorter2
+## 2) phage with >=0.9 virsorter2 score becomes a high confident phage in round 1 (rd1)
+## 3) phage with <0.9 virsorter2 score but was also classified by vibrant as a virus beomes a high confident phage in round 2 (rd2)
+
+##create phage size check as a separate column rather than using the actual length variable
+phage$size.check <- ifelse(phage$length.checkv<5000, "too_small", "ok")
+
+phage.dc <- phage
+phage.dc$rd <- 0  ##create column for round which phage is classified as confident (0 = not confident)
+
+#phage filter step 1 & 2
+phage.dc$rd <- ifelse(phage.dc$max_score>=0.9 & phage.dc$size.check=="ok" & phage.dc$max_score_group=="dsDNAphage", "rd1", phage.dc$rd)  
+
+##phage filter step 1 & 3
+phage.dc$rd <- ifelse(phage.dc$max_score<0.9 & phage.dc$prediction=="virus" & phage.dc$size.check=="ok" & phage.dc$max_score_group=="dsDNAphage", "rd2", phage.dc$rd) 
+
+##if phage classified as high confident, label it as "passed", otherwise label it as "no_phage"
+phage.dc$phage_filt <- ifelse(phage.dc$rd!=0, "phage_pass", "no_phage")
+
+##remove any isolates that did not have phage / phage that did not pass filtering
+phage.dc$phage_filt[is.na(phage.dc$phage_filt)] <- "no_phage"
+phage.dc <- subset(phage.dc, phage.dc$phage_filt=="phage_pass")
+
+
+phage.dc <- phage.dc[,c(1,2,14:15,4,17,25,23,5,7,6,21)]
+
+colnames(phage.dc)[1:12] = c("FNA.name", "phage_seqname", "max_score", "max_score_group", "length.checkv", "hallmark", "rd", "phage.filt", "checkv.trimmed", "checkv.split", "checkv.contigs", "vib.frag.count")
+
+```
+
+
+
+```{r}
+hb.phage <- merge(HBall, phage.dc, by="FNA.name", all=TRUE) ## merge species isolate info back in
+
+##for bacterial isolates with no phage, fill in:
+hb.phage$phage.filt[is.na(hb.phage$phage.filt)] <- "no_phage"
+hb.phage$phage_seqname[is.na(hb.phage$phage_seqname)] <- "no_phage"
+hb.phage[is.na(hb.phage)] <- "NA"
+
+```
+
+
+```{r}
+write.csv(hb.phage, "data/dc525_5kbdsDNAphage.csv") ## >5kbp dsDNA only, includes 31 no_phage records of bacterial isolates which had 0 high confidence phage
+```
+
+
+
+
+##Quality control / Numbers for the pipeline, this is essentially redudnant to the steps above but this is a sanity check to make sure my pipeline was working correctly. 
+
+```{r}
+
+##raw virsorter2/checkv output
+qc1 <- merge(HB.isos, vs2, by="FNA.name", all.x=FALSE, all.y=FALSE) #vs2 initially identified 894 phage 
+qc1 <- subset(qc1, qc1$max_score_group=="dsDNAphage")  ##539 were dsDNAphage
+qc1 <- merge(qc1, checkv, by.x="phage_seqname", by.y="input_vs2", all.x=TRUE, all.y=FALSE) ##after checkv trimmed and SPLIT a few vs2 sequences, there were 546 phage sequences.
+
+qc1 <- subset(qc1, qc1$length.checkv>=5000) ##462 putative dsDNAphage greater than 5000bp 
+
+
+rd1 <- subset(qc1, qc1$max_score>=0.9) ##357 phage were scored above 0.9 by vs2 (round 1)
+
+rd2 <- merge(qc1, vib, by.x="checkv_name", by.y="checkv_input", all.x=TRUE, all.y=FALSE)
+rd2 <- subset(rd2, rd2$max_score<0.9 & rd2$prediction=="virus") ##74 dsDNAphage scored under 0.9 by vs2 were additionally classified as viral by VIBRANT (round 2 confident)
+
+
+## 431 rd1 phage + 74 rd2 phage = 431 high confident phage identified. 
+
+
+```
+
+### 
+
+dRep was then run on the 5kbp dsDNA phage to identify near-identical phage belonging to the same populations (clusters).
+
+
+```{r}
+##clear working environment for visual ease
+rm(list=ls())
+
+
+##### Load and Clean Datafiles  ######
+
+# clusters: dRep cluster output, assigning all high confident phage (rd1 and rd2) to population clusters.
+
+clusters <- read.csv("data/raw/Cdb95-95-85.csv")
+clusters <- clusters[,c(2,3)]
+
+
+# rep: dRep "winning" representive output, a list of the dRep selected representives for each cluster.
+rep <- read.csv("data/raw/Wdb95-95-85.csv")
+rep$representative <- "reference_phage" #column to indicate reference phage
+rep <- rep[,c(2,3,5)]
+
+
+## hb1: the datafile just made above of all high confident phage (rd1 ,rd2)
+hb1 <- read.csv("data/dc525_5kbdsDNAphage.csv", row.names=1)
+hb1 <- subset(hb1, hb1$phage_seqname!="no_phage") ##remove no_phage entries (not relevant for dereplicating)
+hb1 <- hb1[,c(9,1,5)] ##subset only phage_seqname, FNA name, and genus/species final group, 
+
+```
+
+```{r}
+
+##merge clusters and rep
+merge <- merge(clusters, rep, by="phage_seq", all=TRUE)
+
+##if representative column is empty, that phage is not a representative phage for its cluster.
+merge$representative[is.na(merge$representative)] <- "NO"
+
+
+##merge clusters/reps with hb1 info
+hb1.all <- merge(merge, hb1, by.x="phage_seq", by.y="phage_seqname", all.x=TRUE, all.y=TRUE)
+
+
+##identify if any clusters have phage from more than one bacterial host species
+
+hb1.count <- hb1.all[,c(2,6)]
+hb1.count$tally <-1
+hb1.count <- aggregate(hb1.count[,c(3)], by=list(hb1.count$FinalGroup, hb1.count$secondary_cluster), FUN=sum)  ##sums up the number of phage within a cluster of that host species
+
+dups <- hb1.count$Group.2[duplicated(hb1.count$Group.2)]
+
+##one cluster overlap between g. apicola and g. apis -- cluster 55_1  
+#MCIU01000040.1||0_partial_1    and     QGLO01000004.1||1_partial_1
+## manually classify both as representative phages for their respective host within their cluster.
+
+hb1.all$secondary_cluster <-ifelse(hb1.all$secondary_cluster=="55_1" & hb1.all$FinalGroup=="Gilliamella apicola", "55_1b", hb1.all$secondary_cluster)
+hb1.all$secondary_cluster <-ifelse(hb1.all$secondary_cluster=="55_1" & hb1.all$FinalGroup=="Gilliamella apis", "55_1a", hb1.all$secondary_cluster)
+hb1.all$representative <-ifelse(hb1.all$secondary_cluster=="55_1b", "reference_phage", hb1.all$representative)
+
+
+## identify how many phage are singletons and how many are in clusters with more than one phage:
+hb1.count.solo <- subset(hb1.count, hb1.count$x==1) #237 phage in a unique cluster by themselves (counting clusters 55_1a and 55_1b as separate)
+hb1.count.group <- subset(hb1.count, hb1.count$x!=1)  ## 66 unique phage clusters composed of 194 phage 
+
+
+dups <- hb1.count$Group.2[duplicated(hb1.count$Group.2)]
+
+
+
+hb1.all <- hb1.all[,c(1,2,4,5)]
+
+write.csv(hb1.all, "data/dc525_dRepList.csv")
+
+#303 unique phage species identified from 431 high confident phage regions
+## 237 phage were unique to themselves (singletons), while the remaining 194 phage could be clustered into 66 near-identical populations.
+
+```
+
+
+##useful for vcontact2 genome_by_genome datatable in Cytoscape, but not used in further R analysis
+
+```{r}
+##reload clean hb1
+hb1 <- read.csv("data/dc525_5kbdsDNAphage.csv", row.names=1)
+
+hb1.all <- hb1.all[,-c(4)] ##remove redundant column before merging
+
+#merge bacterial host information with drep list
+full_derep <- merge(hb1.all, hb1, by.x="phage_seq", by.y="phage_seqname", all.x=TRUE, all.y=TRUE)
+
+full_derep <- full_derep[,c(1:8)] #relevant categories for vcontact2
+
+
+##remove all non-reference since  vcontact2 will only run reference.
+vcon <- subset(full_derep, full_derep$representative=="reference_phage")
+
+write.csv(vcon, "data/misc/derep_genomeinfo_vcontlist.csv")
+
+```

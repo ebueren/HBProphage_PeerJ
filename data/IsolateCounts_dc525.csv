@@ -1,0 +1,20 @@
+"","Relationship","Phylotype","FinalGroup","Relationship.size","Phylotype.size","FinalGroup.size"
+"1","Core","Snodgrassella alvi","Snodgrassella alvi",151,34,34
+"2","Core","Gilliamella spp.","Gilliamella apis",151,61,23
+"3","Core","Lactobacillus kunkeei","Lactobacillus kunkeei",151,10,10
+"4","Core","Firm-5","Lactobacillus apis",151,11,3
+"5","Core","Firm-4","Lactobacillus mellis",151,6,5
+"6","Core","Bifidobacterium spp.","Bifidobacterium indicum",151,15,1
+"7","Core","Bifidobacterium spp.","Bifidobacterium coryneforme",151,15,2
+"8","Core","Gilliamella spp.","Gilliamella apicola",151,61,38
+"9","Core","Firm-4","Lactobacillus mellifer",151,6,1
+"10","Core","Acetobacter","Bombella apis",151,6,6
+"11","Core","Firm-5","Lactobacillus helsingborgensis",151,11,2
+"12","Core","Bifidobacterium spp.","Bifidobacterium asteroides",151,15,12
+"13","Core","Firm-5","Lactobacillus melliventris",151,11,3
+"14","Core","Firm-5","Lactobacillus kullabergensis",151,11,2
+"15","Pathogen","Pathogen","Melissococcus plutonius",30,30,17
+"16","Core","Firm-5","Lactobacillus kimbladii",151,11,1
+"17","Core","Bartonella apis","Bartonella apis",151,6,6
+"18","Core","Frischella perrara","Frischella perrara",151,2,2
+"19","Pathogen","Pathogen","Paenibacillus larvae",30,30,13

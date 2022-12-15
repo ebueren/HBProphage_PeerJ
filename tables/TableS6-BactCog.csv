@@ -1,0 +1,312 @@
+"","FinalGroup","totalhits","COG.broad","deets","xtremedeets","phrog_category","Relationship","Phylotype","new.freq","perc.fq"
+"1","Bartonella apis",287,"PHAGE","Phage-associated","head and packaging","head and packaging","Core","Bartonella apis",26,9.05923344947735
+"2","Bartonella apis",287,"PHAGE","Phage-associated","lysis","lysis","Core","Bartonella apis",10,3.48432055749129
+"3","Bartonella apis",287,"PHAGE","Phage moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","Core","Bartonella apis",2,0.696864111498258
+"4","Bartonella apis",287,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","not_viral","Core","Bartonella apis",4,1.39372822299652
+"5","Bartonella apis",287,"PHAGE","Phage-associated","transcription regulation","transcription regulation","Core","Bartonella apis",13,4.52961672473868
+"6","Bartonella apis",287,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","other","Core","Bartonella apis",6,2.09059233449477
+"7","Bartonella apis",287,"PHAGE","Phage-associated","unknown function","unknown function","Core","Bartonella apis",8,2.78745644599303
+"8","Bartonella apis",287,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","unknown function","Core","Bartonella apis",1,0.348432055749129
+"9","Bartonella apis",287,"METABOLISM","Carbohydrate (G)","Carbohydrate (G)","unknown function","Core","Bartonella apis",1,0.348432055749129
+"10","Bartonella apis",287,"PHAGE","Phage-associated","connector","connector","Core","Bartonella apis",3,1.04529616724739
+"11","Bartonella apis",287,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown (S, No Hits)","unknown function","Core","Bartonella apis",1,0.348432055749129
+"12","Bartonella apis",287,"INFORMATION STORAGE AND PROCESSING","Information processing (ALBY)","Replication, recombination, repair (L)","not_viral","Core","Bartonella apis",1,0.348432055749129
+"13","Bartonella apis",287,"PHAGE","Phage-associated","DNA, RNA and nucleotide metabolism","DNA, RNA and nucleotide metabolism","Core","Bartonella apis",21,7.31707317073171
+"14","Bartonella apis",287,"PHAGE","Phage-associated","tail","tail","Core","Bartonella apis",12,4.18118466898955
+"15","Bartonella apis",287,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","not_viral","Core","Bartonella apis",91,31.7073170731707
+"16","Bartonella apis",287,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","not_viral","Core","Bartonella apis",38,13.2404181184669
+"17","Bartonella apis",287,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","unknown function","Core","Bartonella apis",1,0.348432055749129
+"18","Bartonella apis",287,"PHAGE","Phage-associated","not_viral","not_viral","Core","Bartonella apis",1,0.348432055749129
+"19","Bartonella apis",287,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","unknown function","Core","Bartonella apis",45,15.6794425087108
+"20","Bartonella apis",287,"PHAGE","Phage-associated","integration and excision","integration and excision","Core","Bartonella apis",2,0.696864111498258
+"21","Bifidobacterium asteroides",174,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","other","Core","Bifidobacterium spp.",1,0.574712643678161
+"22","Bifidobacterium asteroides",174,"PHAGE","Phage-associated","lysis","lysis","Core","Bifidobacterium spp.",7,4.02298850574713
+"23","Bifidobacterium asteroides",174,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","unknown function","Core","Bifidobacterium spp.",1,0.574712643678161
+"24","Bifidobacterium asteroides",174,"PHAGE","Phage-associated","connector","connector","Core","Bifidobacterium spp.",6,3.44827586206897
+"25","Bifidobacterium asteroides",174,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","not_viral","Core","Bifidobacterium spp.",51,29.3103448275862
+"26","Bifidobacterium asteroides",174,"PHAGE","Phage-associated","head and packaging","head and packaging","Core","Bifidobacterium spp.",18,10.3448275862069
+"27","Bifidobacterium asteroides",174,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","other","Core","Bifidobacterium spp.",1,0.574712643678161
+"28","Bifidobacterium asteroides",174,"PHAGE","Phage-associated","transcription regulation","transcription regulation","Core","Bifidobacterium spp.",3,1.72413793103448
+"29","Bifidobacterium asteroides",174,"PHAGE","Phage-associated","tail","tail","Core","Bifidobacterium spp.",13,7.47126436781609
+"30","Bifidobacterium asteroides",174,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","not_viral","Core","Bifidobacterium spp.",3,1.72413793103448
+"31","Bifidobacterium asteroides",174,"PHAGE","Phage-associated","DNA, RNA and nucleotide metabolism","DNA, RNA and nucleotide metabolism","Core","Bifidobacterium spp.",21,12.0689655172414
+"32","Bifidobacterium asteroides",174,"PHAGE","Phage-associated","integration and excision","integration and excision","Core","Bifidobacterium spp.",4,2.29885057471264
+"33","Bifidobacterium asteroides",174,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","unknown function","Core","Bifidobacterium spp.",20,11.4942528735632
+"34","Bifidobacterium asteroides",174,"PHAGE","Phage moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","Core","Bifidobacterium spp.",1,0.574712643678161
+"35","Bifidobacterium asteroides",174,"PHAGE","Phage-associated","not_viral","not_viral","Core","Bifidobacterium spp.",1,0.574712643678161
+"36","Bifidobacterium asteroides",174,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","not_viral","Core","Bifidobacterium spp.",23,13.2183908045977
+"37","Bifidobacterium coryneforme",33,"PHAGE","Phage-associated","DNA, RNA and nucleotide metabolism","DNA, RNA and nucleotide metabolism","Core","Bifidobacterium spp.",4,12.1212121212121
+"38","Bifidobacterium coryneforme",33,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","other","Core","Bifidobacterium spp.",1,3.03030303030303
+"39","Bifidobacterium coryneforme",33,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","not_viral","Core","Bifidobacterium spp.",1,3.03030303030303
+"40","Bifidobacterium coryneforme",33,"PHAGE","Phage-associated","transcription regulation","transcription regulation","Core","Bifidobacterium spp.",1,3.03030303030303
+"41","Bifidobacterium coryneforme",33,"PHAGE","Phage-associated","tail","tail","Core","Bifidobacterium spp.",6,18.1818181818182
+"42","Bifidobacterium coryneforme",33,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","not_viral","Core","Bifidobacterium spp.",8,24.2424242424242
+"43","Bifidobacterium coryneforme",33,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","unknown function","Core","Bifidobacterium spp.",4,12.1212121212121
+"44","Bifidobacterium coryneforme",33,"PHAGE","Phage-associated","not_viral","not_viral","Core","Bifidobacterium spp.",1,3.03030303030303
+"45","Bifidobacterium coryneforme",33,"INFORMATION STORAGE AND PROCESSING","Information processing (ALBY)","Replication, recombination, repair (L)","not_viral","Core","Bifidobacterium spp.",1,3.03030303030303
+"46","Bifidobacterium coryneforme",33,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","not_viral","Core","Bifidobacterium spp.",3,9.09090909090909
+"47","Bifidobacterium coryneforme",33,"PHAGE","Phage-associated","lysis","lysis","Core","Bifidobacterium spp.",2,6.06060606060606
+"48","Bifidobacterium coryneforme",33,"PHAGE","Phage-associated","head and packaging","head and packaging","Core","Bifidobacterium spp.",1,3.03030303030303
+"49","Bifidobacterium indicum",13,"METABOLISM","Secondary metabolite (Q)","Secondary metabolite (Q)","not_viral","Core","Bifidobacterium spp.",1,7.69230769230769
+"50","Bifidobacterium indicum",13,"METABOLISM","Nucleotide (F)","Nucleotide (F)","not_viral","Core","Bifidobacterium spp.",1,7.69230769230769
+"51","Bifidobacterium indicum",13,"PHAGE","Phage-associated","transcription regulation","transcription regulation","Core","Bifidobacterium spp.",1,7.69230769230769
+"52","Bifidobacterium indicum",13,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","not_viral","Core","Bifidobacterium spp.",1,7.69230769230769
+"53","Bifidobacterium indicum",13,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","unknown function","Core","Bifidobacterium spp.",1,7.69230769230769
+"54","Bifidobacterium indicum",13,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","not_viral","Core","Bifidobacterium spp.",3,23.0769230769231
+"55","Bifidobacterium indicum",13,"PHAGE","Phage-associated","not_viral","not_viral","Core","Bifidobacterium spp.",1,7.69230769230769
+"56","Bifidobacterium indicum",13,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","not_viral","Core","Bifidobacterium spp.",4,30.7692307692308
+"57","Bombella apis",256,"PHAGE","Phage-associated","DNA, RNA and nucleotide metabolism","DNA, RNA and nucleotide metabolism","Core","Acetobacter",11,4.296875
+"58","Bombella apis",256,"PHAGE","Phage-associated","head and packaging","head and packaging","Core","Acetobacter",53,20.703125
+"59","Bombella apis",256,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","unknown function","Core","Acetobacter",4,1.5625
+"60","Bombella apis",256,"CELLULAR PROCESSES AND SIGNALING","Translation (JO)","Posttranslational (O)","unknown function","Core","Acetobacter",1,0.390625
+"61","Bombella apis",256,"PHAGE","Phage-associated","not_viral","not_viral","Core","Acetobacter",3,1.171875
+"62","Bombella apis",256,"PHAGE","Phage-associated","lysis","lysis","Core","Acetobacter",4,1.5625
+"63","Bombella apis",256,"PHAGE","Phage-associated","connector","connector","Core","Acetobacter",9,3.515625
+"64","Bombella apis",256,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","not_viral","Core","Acetobacter",80,31.25
+"65","Bombella apis",256,"PHAGE","Phage-associated","tail","tail","Core","Acetobacter",39,15.234375
+"66","Bombella apis",256,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","not_viral","Core","Acetobacter",8,3.125
+"67","Bombella apis",256,"PHAGE","Phage-associated","integration and excision","integration and excision","Core","Acetobacter",3,1.171875
+"68","Bombella apis",256,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","other","Core","Acetobacter",4,1.5625
+"69","Bombella apis",256,"PHAGE","Phage-associated","transcription regulation","transcription regulation","Core","Acetobacter",7,2.734375
+"70","Bombella apis",256,"PHAGE","Phage-associated","unknown function","unknown function","Core","Acetobacter",1,0.390625
+"71","Bombella apis",256,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","unknown function","Core","Acetobacter",28,10.9375
+"72","Bombella apis",256,"CELLULAR PROCESSES AND SIGNALING","Signaling (DTNZU)","Signal transd. (T)","not_viral","Core","Acetobacter",1,0.390625
+"73","Frischella perrara",58,"PHAGE","Phage-associated","DNA, RNA and nucleotide metabolism","DNA, RNA and nucleotide metabolism","Core","Frischella perrara",3,5.17241379310345
+"74","Frischella perrara",58,"PHAGE","Phage-associated","tail","tail","Core","Frischella perrara",26,44.8275862068966
+"75","Frischella perrara",58,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","not_viral","Core","Frischella perrara",10,17.2413793103448
+"76","Frischella perrara",58,"PHAGE","Phage-associated","lysis","lysis","Core","Frischella perrara",3,5.17241379310345
+"77","Frischella perrara",58,"PHAGE","Phage-associated","not_viral","not_viral","Core","Frischella perrara",1,1.72413793103448
+"78","Frischella perrara",58,"PHAGE","Phage-associated","unknown function","unknown function","Core","Frischella perrara",1,1.72413793103448
+"79","Frischella perrara",58,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","not_viral","Core","Frischella perrara",4,6.89655172413793
+"80","Frischella perrara",58,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","unknown function","Core","Frischella perrara",4,6.89655172413793
+"81","Frischella perrara",58,"PHAGE","Phage-associated","head and packaging","head and packaging","Core","Frischella perrara",4,6.89655172413793
+"82","Frischella perrara",58,"CELLULAR PROCESSES AND SIGNALING","Signaling (DTNZU)","Signal transd. (T)","unknown function","Core","Frischella perrara",1,1.72413793103448
+"83","Frischella perrara",58,"CELLULAR PROCESSES AND SIGNALING","Membrane (MW)","Cell membrane (M)","not_viral","Core","Frischella perrara",1,1.72413793103448
+"84","Gilliamella apicola",2102,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","other","Core","Gilliamella spp.",48,2.28353948620362
+"85","Gilliamella apicola",2102,"CELLULAR PROCESSES AND SIGNALING","Membrane (MW)","Cell membrane (M)","unknown function","Core","Gilliamella spp.",1,0.0475737392959087
+"86","Gilliamella apicola",2102,"PHAGE","Phage-associated","lysis","lysis","Core","Gilliamella spp.",152,7.23120837297812
+"87","Gilliamella apicola",2102,"PHAGE","Phage-associated","integration and excision","integration and excision","Core","Gilliamella spp.",83,3.94862036156042
+"88","Gilliamella apicola",2102,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","unknown function","Core","Gilliamella spp.",27,1.28449096098953
+"89","Gilliamella apicola",2102,"PHAGE","Phage-associated","tail","tail","Core","Gilliamella spp.",437,20.7897240723121
+"90","Gilliamella apicola",2102,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","not_viral","Core","Gilliamella spp.",6,0.285442435775452
+"91","Gilliamella apicola",2102,"CELLULAR PROCESSES AND SIGNALING","Translation (JO)","Posttranslational (O)","unknown function","Core","Gilliamella spp.",1,0.0475737392959087
+"92","Gilliamella apicola",2102,"PHAGE","Phage-associated","DNA, RNA and nucleotide metabolism","DNA, RNA and nucleotide metabolism","Core","Gilliamella spp.",153,7.27878211227403
+"93","Gilliamella apicola",2102,"METABOLISM","Nucleotide (F)","Nucleotide (F)","other","Core","Gilliamella spp.",1,0.0475737392959087
+"94","Gilliamella apicola",2102,"PHAGE","Phage-associated","transcription regulation","transcription regulation","Core","Gilliamella spp.",104,4.9476688867745
+"95","Gilliamella apicola",2102,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown (S, No Hits)","other","Core","Gilliamella spp.",1,0.0475737392959087
+"96","Gilliamella apicola",2102,"METABOLISM","Coenzyme (H)","Coenzyme (H)","other","Core","Gilliamella spp.",2,0.0951474785918173
+"97","Gilliamella apicola",2102,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","not_viral","Core","Gilliamella spp.",438,20.837297811608
+"98","Gilliamella apicola",2102,"INFORMATION STORAGE AND PROCESSING","Information processing (ALBY)","Replication, recombination, repair (L)","unknown function","Core","Gilliamella spp.",15,0.71360608943863
+"99","Gilliamella apicola",2102,"METABOLISM","Amino acid (E)","Amino acid (E)","not_viral","Core","Gilliamella spp.",4,0.190294957183635
+"100","Gilliamella apicola",2102,"METABOLISM","Carbohydrate (G)","Carbohydrate (G)","unknown function","Core","Gilliamella spp.",2,0.0951474785918173
+"101","Gilliamella apicola",2102,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","unknown function","Core","Gilliamella spp.",184,8.75356803044719
+"102","Gilliamella apicola",2102,"INFORMATION STORAGE AND PROCESSING","Information processing (ALBY)","Replication, recombination, repair (L)","other","Core","Gilliamella spp.",5,0.237868696479543
+"103","Gilliamella apicola",2102,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown (S, No Hits)","unknown function","Core","Gilliamella spp.",1,0.0475737392959087
+"104","Gilliamella apicola",2102,"PHAGE","Phage-associated","unknown function","unknown function","Core","Gilliamella spp.",36,1.71265461465271
+"105","Gilliamella apicola",2102,"PHAGE","Phage-associated","not_viral","not_viral","Core","Gilliamella spp.",25,1.18934348239772
+"106","Gilliamella apicola",2102,"PHAGE","Phage-associated","connector","connector","Core","Gilliamella spp.",86,4.09134157944814
+"107","Gilliamella apicola",2102,"CELLULAR PROCESSES AND SIGNALING","Signaling (DTNZU)","Signal transd. (T)","unknown function","Core","Gilliamella spp.",1,0.0475737392959087
+"108","Gilliamella apicola",2102,"PHAGE","Phage-associated","head and packaging","head and packaging","Core","Gilliamella spp.",118,5.61370123691722
+"109","Gilliamella apicola",2102,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","not_viral","Core","Gilliamella spp.",132,6.27973358705994
+"110","Gilliamella apicola",2102,"INFORMATION STORAGE AND PROCESSING","Information processing (ALBY)","Replication, recombination, repair (L)","not_viral","Core","Gilliamella spp.",1,0.0475737392959087
+"111","Gilliamella apicola",2102,"METABOLISM","Carbohydrate (G)","Carbohydrate (G)","not_viral","Core","Gilliamella spp.",2,0.0951474785918173
+"112","Gilliamella apicola",2102,"PHAGE","Phage moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","Core","Gilliamella spp.",30,1.42721217887726
+"113","Gilliamella apicola",2102,"METABOLISM","Amino acid (E)","Amino acid (E)","unknown function","Core","Gilliamella spp.",4,0.190294957183635
+"114","Gilliamella apicola",2102,"CELLULAR PROCESSES AND SIGNALING","Signaling (DTNZU)","Signal transd. (T)","other","Core","Gilliamella spp.",1,0.0475737392959087
+"115","Gilliamella apicola",2102,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","unknown function","Core","Gilliamella spp.",1,0.0475737392959087
+"116","Gilliamella apis",603,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","not_viral","Core","Gilliamella spp.",5,0.829187396351575
+"117","Gilliamella apis",603,"INFORMATION STORAGE AND PROCESSING","Information processing (ALBY)","Replication, recombination, repair (L)","unknown function","Core","Gilliamella spp.",1,0.165837479270315
+"118","Gilliamella apis",603,"PHAGE","Phage-associated","not_viral","not_viral","Core","Gilliamella spp.",3,0.497512437810945
+"119","Gilliamella apis",603,"METABOLISM","Carbohydrate (G)","Carbohydrate (G)","unknown function","Core","Gilliamella spp.",1,0.165837479270315
+"120","Gilliamella apis",603,"CELLULAR PROCESSES AND SIGNALING","Membrane (MW)","Cell membrane (M)","not_viral","Core","Gilliamella spp.",1,0.165837479270315
+"121","Gilliamella apis",603,"PHAGE","Phage-associated","lysis","lysis","Core","Gilliamella spp.",28,4.64344941956882
+"122","Gilliamella apis",603,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","not_viral","Core","Gilliamella spp.",135,22.3880597014925
+"123","Gilliamella apis",603,"PHAGE","Phage-associated","transcription regulation","transcription regulation","Core","Gilliamella spp.",52,8.62354892205638
+"124","Gilliamella apis",603,"PHAGE","Phage-associated","unknown function","unknown function","Core","Gilliamella spp.",12,1.99004975124378
+"125","Gilliamella apis",603,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","not_viral","Core","Gilliamella spp.",55,9.12106135986733
+"126","Gilliamella apis",603,"PHAGE","Phage-associated","head and packaging","head and packaging","Core","Gilliamella spp.",19,3.15091210613599
+"127","Gilliamella apis",603,"PHAGE","Phage-associated","integration and excision","integration and excision","Core","Gilliamella spp.",13,2.1558872305141
+"128","Gilliamella apis",603,"PHAGE","Phage-associated","DNA, RNA and nucleotide metabolism","DNA, RNA and nucleotide metabolism","Core","Gilliamella spp.",50,8.29187396351576
+"129","Gilliamella apis",603,"PHAGE","Phage-associated","tail","tail","Core","Gilliamella spp.",114,18.9054726368159
+"130","Gilliamella apis",603,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","unknown function","Core","Gilliamella spp.",14,2.32172470978441
+"131","Gilliamella apis",603,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","unknown function","Core","Gilliamella spp.",56,9.28689883913764
+"132","Gilliamella apis",603,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","other","Core","Gilliamella spp.",10,1.65837479270315
+"133","Gilliamella apis",603,"PHAGE","Phage moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","Core","Gilliamella spp.",12,1.99004975124378
+"134","Gilliamella apis",603,"INFORMATION STORAGE AND PROCESSING","Information processing (ALBY)","Replication, recombination, repair (L)","other","Core","Gilliamella spp.",1,0.165837479270315
+"135","Gilliamella apis",603,"PHAGE","Phage-associated","connector","connector","Core","Gilliamella spp.",18,2.98507462686567
+"136","Gilliamella apis",603,"METABOLISM","Carbohydrate (G)","Carbohydrate (G)","not_viral","Core","Gilliamella spp.",3,0.497512437810945
+"137","Lactobacillus helsingborgensis",28,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","unknown function","Core","Firm-5",2,7.14285714285714
+"138","Lactobacillus helsingborgensis",28,"PHAGE","Phage-associated","DNA, RNA and nucleotide metabolism","DNA, RNA and nucleotide metabolism","Core","Firm-5",7,25
+"139","Lactobacillus helsingborgensis",28,"PHAGE","Phage-associated","head and packaging","head and packaging","Core","Firm-5",1,3.57142857142857
+"140","Lactobacillus helsingborgensis",28,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","not_viral","Core","Firm-5",6,21.4285714285714
+"141","Lactobacillus helsingborgensis",28,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","other","Core","Firm-5",1,3.57142857142857
+"142","Lactobacillus helsingborgensis",28,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","not_viral","Core","Firm-5",1,3.57142857142857
+"143","Lactobacillus helsingborgensis",28,"PHAGE","Phage-associated","transcription regulation","transcription regulation","Core","Firm-5",2,7.14285714285714
+"144","Lactobacillus helsingborgensis",28,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","unknown function","Core","Firm-5",3,10.7142857142857
+"145","Lactobacillus helsingborgensis",28,"PHAGE","Phage-associated","integration and excision","integration and excision","Core","Firm-5",1,3.57142857142857
+"146","Lactobacillus helsingborgensis",28,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","not_viral","Core","Firm-5",4,14.2857142857143
+"147","Lactobacillus kullabergensis",61,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","not_viral","Core","Firm-5",12,19.672131147541
+"148","Lactobacillus kullabergensis",61,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","unknown function","Core","Firm-5",7,11.4754098360656
+"149","Lactobacillus kullabergensis",61,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","other","Core","Firm-5",3,4.91803278688525
+"150","Lactobacillus kullabergensis",61,"PHAGE","Phage-associated","DNA, RNA and nucleotide metabolism","DNA, RNA and nucleotide metabolism","Core","Firm-5",8,13.1147540983607
+"151","Lactobacillus kullabergensis",61,"PHAGE","Phage-associated","unknown function","unknown function","Core","Firm-5",1,1.63934426229508
+"152","Lactobacillus kullabergensis",61,"PHAGE","Phage-associated","tail","tail","Core","Firm-5",8,13.1147540983607
+"153","Lactobacillus kullabergensis",61,"PHAGE","Phage-associated","transcription regulation","transcription regulation","Core","Firm-5",2,3.27868852459016
+"154","Lactobacillus kullabergensis",61,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","unknown function","Core","Firm-5",4,6.55737704918033
+"155","Lactobacillus kullabergensis",61,"PHAGE","Phage-associated","lysis","lysis","Core","Firm-5",3,4.91803278688525
+"156","Lactobacillus kullabergensis",61,"PHAGE","Phage-associated","connector","connector","Core","Firm-5",3,4.91803278688525
+"157","Lactobacillus kullabergensis",61,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","not_viral","Core","Firm-5",3,4.91803278688525
+"158","Lactobacillus kullabergensis",61,"PHAGE","Phage-associated","integration and excision","integration and excision","Core","Firm-5",1,1.63934426229508
+"159","Lactobacillus kullabergensis",61,"PHAGE","Phage-associated","head and packaging","head and packaging","Core","Firm-5",6,9.83606557377049
+"160","Lactobacillus kunkeei",243,"PHAGE","Phage-associated","transcription regulation","transcription regulation","Core","Lactobacillus kunkeei",12,4.93827160493827
+"161","Lactobacillus kunkeei",243,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","unknown function","Core","Lactobacillus kunkeei",20,8.23045267489712
+"162","Lactobacillus kunkeei",243,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","not_viral","Core","Lactobacillus kunkeei",64,26.3374485596708
+"163","Lactobacillus kunkeei",243,"PHAGE","Phage-associated","tail","tail","Core","Lactobacillus kunkeei",20,8.23045267489712
+"164","Lactobacillus kunkeei",243,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","not_viral","Core","Lactobacillus kunkeei",3,1.23456790123457
+"165","Lactobacillus kunkeei",243,"PHAGE","Phage-associated","not_viral","not_viral","Core","Lactobacillus kunkeei",3,1.23456790123457
+"166","Lactobacillus kunkeei",243,"PHAGE","Phage-associated","integration and excision","integration and excision","Core","Lactobacillus kunkeei",7,2.88065843621399
+"167","Lactobacillus kunkeei",243,"INFORMATION STORAGE AND PROCESSING","Information processing (ALBY)","Replication, recombination, repair (L)","unknown function","Core","Lactobacillus kunkeei",4,1.64609053497942
+"168","Lactobacillus kunkeei",243,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","unknown function","Core","Lactobacillus kunkeei",2,0.823045267489712
+"169","Lactobacillus kunkeei",243,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","unknown function","Core","Lactobacillus kunkeei",5,2.05761316872428
+"170","Lactobacillus kunkeei",243,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","not_viral","Core","Lactobacillus kunkeei",41,16.8724279835391
+"171","Lactobacillus kunkeei",243,"PHAGE","Phage-associated","lysis","lysis","Core","Lactobacillus kunkeei",8,3.29218106995885
+"172","Lactobacillus kunkeei",243,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown (S, No Hits)","not_viral","Core","Lactobacillus kunkeei",2,0.823045267489712
+"173","Lactobacillus kunkeei",243,"PHAGE","Phage-associated","DNA, RNA and nucleotide metabolism","DNA, RNA and nucleotide metabolism","Core","Lactobacillus kunkeei",17,6.99588477366255
+"174","Lactobacillus kunkeei",243,"CELLULAR PROCESSES AND SIGNALING","Defense (V)","Defense (V)","other","Core","Lactobacillus kunkeei",1,0.411522633744856
+"175","Lactobacillus kunkeei",243,"METABOLISM","Carbohydrate (G)","Carbohydrate (G)","not_viral","Core","Lactobacillus kunkeei",1,0.411522633744856
+"176","Lactobacillus kunkeei",243,"PHAGE","Phage-associated","head and packaging","head and packaging","Core","Lactobacillus kunkeei",26,10.6995884773663
+"177","Lactobacillus kunkeei",243,"PHAGE","Phage moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","Core","Lactobacillus kunkeei",4,1.64609053497942
+"178","Lactobacillus kunkeei",243,"PHAGE","Phage-associated","connector","connector","Core","Lactobacillus kunkeei",3,1.23456790123457
+"179","Lactobacillus mellis",244,"CELLULAR PROCESSES AND SIGNALING","Defense (V)","Defense (V)","other","Core","Firm-4",1,0.409836065573771
+"180","Lactobacillus mellis",244,"PHAGE","Phage-associated","DNA, RNA and nucleotide metabolism","DNA, RNA and nucleotide metabolism","Core","Firm-4",35,14.344262295082
+"181","Lactobacillus mellis",244,"PHAGE","Phage-associated","other","other","Core","Firm-4",1,0.409836065573771
+"182","Lactobacillus mellis",244,"PHAGE","Phage-associated","lysis","lysis","Core","Firm-4",5,2.04918032786885
+"183","Lactobacillus mellis",244,"PHAGE","Phage-associated","transcription regulation","transcription regulation","Core","Firm-4",9,3.68852459016393
+"184","Lactobacillus mellis",244,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","not_viral","Core","Firm-4",62,25.4098360655738
+"185","Lactobacillus mellis",244,"CELLULAR PROCESSES AND SIGNALING","Defense (V)","Defense (V)","not_viral","Core","Firm-4",1,0.409836065573771
+"186","Lactobacillus mellis",244,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","not_viral","Core","Firm-4",4,1.63934426229508
+"187","Lactobacillus mellis",244,"PHAGE","Phage-associated","connector","connector","Core","Firm-4",7,2.86885245901639
+"188","Lactobacillus mellis",244,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","unknown function","Core","Firm-4",2,0.819672131147541
+"189","Lactobacillus mellis",244,"CELLULAR PROCESSES AND SIGNALING","Translation (JO)","Posttranslational (O)","unknown function","Core","Firm-4",1,0.409836065573771
+"190","Lactobacillus mellis",244,"INFORMATION STORAGE AND PROCESSING","Information processing (ALBY)","Replication, recombination, repair (L)","other","Core","Firm-4",3,1.22950819672131
+"191","Lactobacillus mellis",244,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","unknown function","Core","Firm-4",3,1.22950819672131
+"192","Lactobacillus mellis",244,"METABOLISM","Lipid (I)","Lipid (I)","unknown function","Core","Firm-4",1,0.409836065573771
+"193","Lactobacillus mellis",244,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","other","Core","Firm-4",9,3.68852459016393
+"194","Lactobacillus mellis",244,"PHAGE","Phage moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","Core","Firm-4",3,1.22950819672131
+"195","Lactobacillus mellis",244,"PHAGE","Phage-associated","head and packaging","head and packaging","Core","Firm-4",23,9.42622950819672
+"196","Lactobacillus mellis",244,"PHAGE","Phage-associated","tail","tail","Core","Firm-4",14,5.73770491803279
+"197","Lactobacillus mellis",244,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","unknown function","Core","Firm-4",32,13.1147540983607
+"198","Lactobacillus mellis",244,"PHAGE","Phage-associated","not_viral","not_viral","Core","Firm-4",3,1.22950819672131
+"199","Lactobacillus mellis",244,"PHAGE","Phage-associated","unknown function","unknown function","Core","Firm-4",2,0.819672131147541
+"200","Lactobacillus mellis",244,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","other","Core","Firm-4",1,0.409836065573771
+"201","Lactobacillus mellis",244,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","not_viral","Core","Firm-4",21,8.60655737704918
+"202","Lactobacillus mellis",244,"PHAGE","Phage-associated","integration and excision","integration and excision","Core","Firm-4",1,0.409836065573771
+"203","Lactobacillus melliventris",220,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","unknown function","Core","Firm-5",16,7.27272727272727
+"204","Lactobacillus melliventris",220,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","other","Core","Firm-5",5,2.27272727272727
+"205","Lactobacillus melliventris",220,"PHAGE","Phage-associated","transcription regulation","transcription regulation","Core","Firm-5",14,6.36363636363636
+"206","Lactobacillus melliventris",220,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","not_viral","Core","Firm-5",42,19.0909090909091
+"207","Lactobacillus melliventris",220,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","unknown function","Core","Firm-5",19,8.63636363636364
+"208","Lactobacillus melliventris",220,"PHAGE","Phage moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","Core","Firm-5",1,0.454545454545455
+"209","Lactobacillus melliventris",220,"PHAGE","Phage-associated","DNA, RNA and nucleotide metabolism","DNA, RNA and nucleotide metabolism","Core","Firm-5",28,12.7272727272727
+"210","Lactobacillus melliventris",220,"PHAGE","Phage-associated","unknown function","unknown function","Core","Firm-5",7,3.18181818181818
+"211","Lactobacillus melliventris",220,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","not_viral","Core","Firm-5",13,5.90909090909091
+"212","Lactobacillus melliventris",220,"PHAGE","Phage-associated","head and packaging","head and packaging","Core","Firm-5",27,12.2727272727273
+"213","Lactobacillus melliventris",220,"PHAGE","Phage-associated","connector","connector","Core","Firm-5",12,5.45454545454545
+"214","Lactobacillus melliventris",220,"PHAGE","Phage-associated","tail","tail","Core","Firm-5",23,10.4545454545455
+"215","Lactobacillus melliventris",220,"PHAGE","Phage-associated","lysis","lysis","Core","Firm-5",9,4.09090909090909
+"216","Lactobacillus melliventris",220,"PHAGE","Phage-associated","integration and excision","integration and excision","Core","Firm-5",4,1.81818181818182
+"217","Melissococcus plutonius",375,"PHAGE","Phage-associated","tail","tail","Pathogen","Pathogen",45,12
+"218","Melissococcus plutonius",375,"METABOLISM","Carbohydrate (G)","Carbohydrate (G)","unknown function","Pathogen","Pathogen",1,0.266666666666667
+"219","Melissococcus plutonius",375,"INFORMATION STORAGE AND PROCESSING","Translation (JO)","Translation (J)","other","Pathogen","Pathogen",1,0.266666666666667
+"220","Melissococcus plutonius",375,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","not_viral","Pathogen","Pathogen",24,6.4
+"221","Melissococcus plutonius",375,"PHAGE","Phage-associated","other","other","Pathogen","Pathogen",4,1.06666666666667
+"222","Melissococcus plutonius",375,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown (S, No Hits)","unknown function","Pathogen","Pathogen",1,0.266666666666667
+"223","Melissococcus plutonius",375,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","not_viral","Pathogen","Pathogen",7,1.86666666666667
+"224","Melissococcus plutonius",375,"PHAGE","Phage-associated","head and packaging","head and packaging","Pathogen","Pathogen",48,12.8
+"225","Melissococcus plutonius",375,"PHAGE","Phage-associated","lysis","lysis","Pathogen","Pathogen",14,3.73333333333333
+"226","Melissococcus plutonius",375,"PHAGE","Phage-associated","not_viral","not_viral","Pathogen","Pathogen",9,2.4
+"227","Melissococcus plutonius",375,"CELLULAR PROCESSES AND SIGNALING","Signaling (DTNZU)","General transport (U)","unknown function","Pathogen","Pathogen",1,0.266666666666667
+"228","Melissococcus plutonius",375,"PHAGE","Phage moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","Pathogen","Pathogen",7,1.86666666666667
+"229","Melissococcus plutonius",375,"PHAGE","Phage-associated","integration and excision","integration and excision","Pathogen","Pathogen",7,1.86666666666667
+"230","Melissococcus plutonius",375,"PHAGE","Phage-associated","DNA, RNA and nucleotide metabolism","DNA, RNA and nucleotide metabolism","Pathogen","Pathogen",30,8
+"231","Melissococcus plutonius",375,"PHAGE","Phage-associated","connector","connector","Pathogen","Pathogen",13,3.46666666666667
+"232","Melissococcus plutonius",375,"PHAGE","Phage-associated","unknown function","unknown function","Pathogen","Pathogen",10,2.66666666666667
+"233","Melissococcus plutonius",375,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","not_viral","Pathogen","Pathogen",68,18.1333333333333
+"234","Melissococcus plutonius",375,"PHAGE","Phage-associated","transcription regulation","transcription regulation","Pathogen","Pathogen",26,6.93333333333333
+"235","Melissococcus plutonius",375,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","unknown function","Pathogen","Pathogen",47,12.5333333333333
+"236","Melissococcus plutonius",375,"CELLULAR PROCESSES AND SIGNALING","Membrane (MW)","Cell membrane (M)","not_viral","Pathogen","Pathogen",3,0.8
+"237","Melissococcus plutonius",375,"METABOLISM","Carbohydrate (G)","Carbohydrate (G)","not_viral","Pathogen","Pathogen",2,0.533333333333333
+"238","Melissococcus plutonius",375,"METABOLISM","Inorganic ion (P)","Inorganic ion (P)","unknown function","Pathogen","Pathogen",1,0.266666666666667
+"239","Melissococcus plutonius",375,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","unknown function","Pathogen","Pathogen",6,1.6
+"240","Paenibacillus larvae",5243,"METABOLISM","Amino acid (E)","Amino acid (E)","not_viral","Pathogen","Pathogen",7,0.133511348464619
+"241","Paenibacillus larvae",5243,"METABOLISM","Inorganic ion (P)","Inorganic ion (P)","not_viral","Pathogen","Pathogen",3,0.0572191493419798
+"242","Paenibacillus larvae",5243,"PHAGE","Phage-associated","tail","tail","Pathogen","Pathogen",413,7.87716955941255
+"243","Paenibacillus larvae",5243,"INFORMATION STORAGE AND PROCESSING","Information processing (ALBY)","Replication, recombination, repair (L)","unknown function","Pathogen","Pathogen",5,0.0953652489032996
+"244","Paenibacillus larvae",5243,"CELLULAR PROCESSES AND SIGNALING","Signaling (DTNZU)","General transport (U)","not_viral","Pathogen","Pathogen",8,0.152584398245279
+"245","Paenibacillus larvae",5243,"INFORMATION STORAGE AND PROCESSING","Translation (JO)","Translation (J)","other","Pathogen","Pathogen",11,0.209803547587259
+"246","Paenibacillus larvae",5243,"PHAGE","Phage-associated","DNA, RNA and nucleotide metabolism","DNA, RNA and nucleotide metabolism","Pathogen","Pathogen",458,8.73545679954225
+"247","Paenibacillus larvae",5243,"CELLULAR PROCESSES AND SIGNALING","Signaling (DTNZU)","General transport (U)","unknown function","Pathogen","Pathogen",1,0.0190730497806599
+"248","Paenibacillus larvae",5243,"CELLULAR PROCESSES AND SIGNALING","Defense (V)","Defense (V)","not_viral","Pathogen","Pathogen",1,0.0190730497806599
+"249","Paenibacillus larvae",5243,"CELLULAR PROCESSES AND SIGNALING","Signaling (DTNZU)","Motility (N)","not_viral","Pathogen","Pathogen",2,0.0381460995613199
+"250","Paenibacillus larvae",5243,"PHAGE","Phage-associated","unknown function","unknown function","Pathogen","Pathogen",35,0.667556742323097
+"251","Paenibacillus larvae",5243,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","not_viral","Pathogen","Pathogen",363,6.92351707037955
+"252","Paenibacillus larvae",5243,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","not_viral","Pathogen","Pathogen",36,0.686629792103757
+"253","Paenibacillus larvae",5243,"CELLULAR PROCESSES AND SIGNALING","Membrane (MW)","Cell membrane (M)","other","Pathogen","Pathogen",1,0.0190730497806599
+"254","Paenibacillus larvae",5243,"PHAGE","Phage-associated","connector","connector","Pathogen","Pathogen",141,2.68930001907305
+"255","Paenibacillus larvae",5243,"PHAGE","Phage moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","Pathogen","Pathogen",153,2.91817661644097
+"256","Paenibacillus larvae",5243,"PHAGE","Phage-associated","head and packaging","head and packaging","Pathogen","Pathogen",432,8.23955750524509
+"257","Paenibacillus larvae",5243,"PHAGE","Phage-associated","not_viral","not_viral","Pathogen","Pathogen",20,0.381460995613199
+"258","Paenibacillus larvae",5243,"PHAGE","Phage-associated","lysis","lysis","Pathogen","Pathogen",171,3.26149151249285
+"259","Paenibacillus larvae",5243,"METABOLISM","Energy (C)","Energy (C)","not_viral","Pathogen","Pathogen",4,0.0762921991226397
+"260","Paenibacillus larvae",5243,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","other","Pathogen","Pathogen",5,0.0953652489032996
+"261","Paenibacillus larvae",5243,"CELLULAR PROCESSES AND SIGNALING","Signaling (DTNZU)","Signal transd. (T)","unknown function","Pathogen","Pathogen",6,0.11443829868396
+"262","Paenibacillus larvae",5243,"INFORMATION STORAGE AND PROCESSING","Translation (JO)","Translation (J)","not_viral","Pathogen","Pathogen",2,0.0381460995613199
+"263","Paenibacillus larvae",5243,"CELLULAR PROCESSES AND SIGNALING","Signaling (DTNZU)","Signal transd. (T)","other","Pathogen","Pathogen",1,0.0190730497806599
+"264","Paenibacillus larvae",5243,"INFORMATION STORAGE AND PROCESSING","Information processing (ALBY)","Replication, recombination, repair (L)","other","Pathogen","Pathogen",24,0.457753194735838
+"265","Paenibacillus larvae",5243,"CELLULAR PROCESSES AND SIGNALING","Translation (JO)","Posttranslational (O)","not_viral","Pathogen","Pathogen",1,0.0190730497806599
+"266","Paenibacillus larvae",5243,"METABOLISM","Coenzyme (H)","Coenzyme (H)","not_viral","Pathogen","Pathogen",1,0.0190730497806599
+"267","Paenibacillus larvae",5243,"METABOLISM","Nucleotide (F)","Nucleotide (F)","not_viral","Pathogen","Pathogen",2,0.0381460995613199
+"268","Paenibacillus larvae",5243,"METABOLISM","Secondary metabolite (Q)","Secondary metabolite (Q)","not_viral","Pathogen","Pathogen",5,0.0953652489032996
+"269","Paenibacillus larvae",5243,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","other","Pathogen","Pathogen",108,2.05988937631127
+"270","Paenibacillus larvae",5243,"CELLULAR PROCESSES AND SIGNALING","Signaling (DTNZU)","Signal transd. (T)","not_viral","Pathogen","Pathogen",2,0.0381460995613199
+"271","Paenibacillus larvae",5243,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown (S, No Hits)","unknown function","Pathogen","Pathogen",7,0.133511348464619
+"272","Paenibacillus larvae",5243,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","not_viral","Pathogen","Pathogen",981,18.7106618348274
+"273","Paenibacillus larvae",5243,"INFORMATION STORAGE AND PROCESSING","Information processing (ALBY)","Replication, recombination, repair (L)","not_viral","Pathogen","Pathogen",1,0.0190730497806599
+"274","Paenibacillus larvae",5243,"METABOLISM","Carbohydrate (G)","Carbohydrate (G)","other","Pathogen","Pathogen",2,0.0381460995613199
+"275","Paenibacillus larvae",5243,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","unknown function","Pathogen","Pathogen",8,0.152584398245279
+"276","Paenibacillus larvae",5243,"CELLULAR PROCESSES AND SIGNALING","Membrane (MW)","Cell membrane (M)","not_viral","Pathogen","Pathogen",3,0.0572191493419798
+"277","Paenibacillus larvae",5243,"PHAGE","Phage-associated","transcription regulation","transcription regulation","Pathogen","Pathogen",236,4.50123974823574
+"278","Paenibacillus larvae",5243,"CELLULAR PROCESSES AND SIGNALING","Translation (JO)","Posttranslational (O)","unknown function","Pathogen","Pathogen",11,0.209803547587259
+"279","Paenibacillus larvae",5243,"METABOLISM","Lipid (I)","Lipid (I)","not_viral","Pathogen","Pathogen",1,0.0190730497806599
+"280","Paenibacillus larvae",5243,"PHAGE","Phage-associated","integration and excision","integration and excision","Pathogen","Pathogen",195,3.71924470722869
+"281","Paenibacillus larvae",5243,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown (S, No Hits)","not_viral","Pathogen","Pathogen",3,0.0572191493419798
+"282","Paenibacillus larvae",5243,"METABOLISM","Inorganic ion (P)","Inorganic ion (P)","unknown function","Pathogen","Pathogen",2,0.0381460995613199
+"283","Paenibacillus larvae",5243,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","unknown function","Pathogen","Pathogen",352,6.71371352279229
+"284","Paenibacillus larvae",5243,"CELLULAR PROCESSES AND SIGNALING","Defense (V)","Defense (V)","unknown function","Pathogen","Pathogen",4,0.0762921991226397
+"285","Paenibacillus larvae",5243,"METABOLISM","Nucleotide (F)","Nucleotide (F)","unknown function","Pathogen","Pathogen",1,0.0190730497806599
+"286","Paenibacillus larvae",5243,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","unknown function","Pathogen","Pathogen",1013,19.3209994278085
+"287","Paenibacillus larvae",5243,"METABOLISM","Inorganic ion (P)","Inorganic ion (P)","other","Pathogen","Pathogen",1,0.0190730497806599
+"288","Snodgrassella alvi",2027,"METABOLISM","Coenzyme (H)","Coenzyme (H)","other","Core","Snodgrassella alvi",2,0.0986679822397632
+"289","Snodgrassella alvi",2027,"PHAGE","Phage-associated","connector","connector","Core","Snodgrassella alvi",73,3.60138135175136
+"290","Snodgrassella alvi",2027,"METABOLISM","Nucleotide (F)","Nucleotide (F)","other","Core","Snodgrassella alvi",1,0.0493339911198816
+"291","Snodgrassella alvi",2027,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","not_viral","Core","Snodgrassella alvi",355,17.513566847558
+"292","Snodgrassella alvi",2027,"PHAGE","Phage-associated","lysis","lysis","Core","Snodgrassella alvi",27,1.3320177602368
+"293","Snodgrassella alvi",2027,"INFORMATION STORAGE AND PROCESSING","Information processing (ALBY)","Replication, recombination, repair (L)","other","Core","Snodgrassella alvi",5,0.246669955599408
+"294","Snodgrassella alvi",2027,"PHAGE","Phage-associated","DNA, RNA and nucleotide metabolism","DNA, RNA and nucleotide metabolism","Core","Snodgrassella alvi",144,7.10409472126295
+"295","Snodgrassella alvi",2027,"PHAGE","Phage-associated","head and packaging","head and packaging","Core","Snodgrassella alvi",249,12.2841637888505
+"296","Snodgrassella alvi",2027,"PHAGE","Phage-associated","transcription regulation","transcription regulation","Core","Snodgrassella alvi",137,6.75875678342378
+"297","Snodgrassella alvi",2027,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","not_viral","Core","Snodgrassella alvi",251,12.3828317710903
+"298","Snodgrassella alvi",2027,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","other","Core","Snodgrassella alvi",14,0.690675875678342
+"299","Snodgrassella alvi",2027,"METABOLISM","Amino acid (E)","Amino acid (E)","unknown function","Core","Snodgrassella alvi",1,0.0493339911198816
+"300","Snodgrassella alvi",2027,"INFORMATION STORAGE AND PROCESSING","Transcription (K)","Transcription (K)","unknown function","Core","Snodgrassella alvi",3,0.148001973359645
+"301","Snodgrassella alvi",2027,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown (S, No Hits)","not_viral","Core","Snodgrassella alvi",2,0.0986679822397632
+"302","Snodgrassella alvi",2027,"CELLULAR PROCESSES AND SIGNALING","Translation (JO)","Posttranslational (O)","not_viral","Core","Snodgrassella alvi",1,0.0493339911198816
+"303","Snodgrassella alvi",2027,"PHAGE","Phage moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","moron, auxiliary metabolic gene and host takeover","Core","Snodgrassella alvi",66,3.25604341391219
+"304","Snodgrassella alvi",2027,"PHAGE","Phage-associated","integration and excision","integration and excision","Core","Snodgrassella alvi",23,1.13468179575728
+"305","Snodgrassella alvi",2027,"PHAGE","Phage-associated","not_viral","not_viral","Core","Snodgrassella alvi",5,0.246669955599408
+"306","Snodgrassella alvi",2027,"PHAGE","Phage-associated","tail","tail","Core","Snodgrassella alvi",331,16.3295510606808
+"307","Snodgrassella alvi",2027,"PHAGE","Phage-associated","unknown function","unknown function","Core","Snodgrassella alvi",2,0.0986679822397632
+"308","Snodgrassella alvi",2027,"INFORMATION STORAGE AND PROCESSING","Information processing (ALBY)","Replication, recombination, repair (L)","unknown function","Core","Snodgrassella alvi",11,0.542673902318698
+"309","Snodgrassella alvi",2027,"POORLY CHARACTERIZED","Unknown (S, No Hits)","Unknown function (S)","unknown function","Core","Snodgrassella alvi",306,15.0962012826838
+"310","Snodgrassella alvi",2027,"POORLY CHARACTERIZED","Unknown (S, No Hits)","No hits (0)","unknown function","Core","Snodgrassella alvi",17,0.838677849037987
+"311","Snodgrassella alvi",2027,"INFORMATION STORAGE AND PROCESSING","Information processing (ALBY)","Replication, recombination, repair (L)","not_viral","Core","Snodgrassella alvi",1,0.0493339911198816
