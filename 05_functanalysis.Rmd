@@ -134,10 +134,35 @@ deetscolors <-c(microshades_palette("micro_cvd_green", 4, lightest = FALSE), #me
 usethis.deets <- subset(usethis, usethis$COG.broad!="POORLY CHARACTERIZED" ) ##remove unknown hits for visual ease
 
 #Fig3 graph
-deets.gg <- ggplot(data=usethis.deets, aes(fill=deets, x=FinalGroup, y=perc.fq)) + geom_bar(stat="identity") + theme2 + ggtitle("Functional Analysis of Prophages") + coord_flip() + xlab("Bacterial Host") +ylab("Percent of Prophage Total Genes") +theme(legend.position="bottom", legend.title = element_blank()) + scale_fill_manual(values = deetscolors) 
+deets.gg <- ggplot(data=usethis.deets, aes(fill=deets, x=FinalGroup, y=perc.fq)) + geom_bar(stat="identity") + theme2 + ggtitle("Functional Analysis of Prophages") + coord_flip() + xlab("Bacterial Host") +ylab("Percent of Prophage Total Genes") +theme(legend.position="bottom", legend.title = element_blank()) + scale_fill_manual(values = deetscolors) + theme(axis.text.y = element_text(face = "italic"))
 
 deets.gg
 ggsave(deets.gg, filename="figs/Fig3.png", width=14, height=9)
+
+```
+##Supp table 
+```{r}
+
+moraux <- hmm
+
+#moraux <- subset(hmm, hmm$COG.broad=="METABOLISM" | hmm$phrog_category=="moron, auxiliary metabolic gene and host takeover" | hmm$nogname=="Bacitracin resistance protein BacA")
+
+moraux$AMG_Moron <- "-"
+moraux$AMG_Moron <- ifelse(moraux$COG.broad=="METABOLISM", "Potential AMG", moraux$AMG_Moron)
+moraux$AMG_Moron <- ifelse(moraux$phrog_category=="moron, auxiliary metabolic gene and host takeover" | moraux$nogname=="Bacitracin resistance protein BacA", "Unspecified Moron", moraux$AMG_Moron)
+
+
+moraux2 <- moraux[,c(24,1,3,2,7,8,14,18,41)]
+
+moraux2$nogname <- ifelse(moraux2$COGlet=="Ph", "-", moraux2$nogname)
+moraux2$noghit <- ifelse(moraux2$COGlet=="Ph", "-", moraux2$noghit)
+
+moraux2$phrog_annot <- ifelse(moraux2$COGlet!="Ph", "-", moraux2$phrog_annot)
+moraux2$EC_number.prok <- ifelse(moraux2$COGlet!="Ph", "-", moraux2$EC_number.prok)
+
+colnames(moraux2) <- c("Bacterial Host", "Phage_Sequence", "Protein_ID", "Classified_by_EggNOG_or_PHROGS", "COGG_Number", "EggNOG_Annotation", "PHROGS_Number", "PHROGS_Annotation", "AMG_or_Moron")
+
+write.csv(moraux2, "tables/TableS7-AMG_Morons.csv")
 
 ```
 

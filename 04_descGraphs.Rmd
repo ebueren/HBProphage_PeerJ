@@ -127,7 +127,7 @@ Fig 1:
 
 
 ##Fig 1A: Number of prophages per isolate
-F1A <- ggplot(Combee, aes(x = FinalGroup, y = Num_of_phage, fill = FinalGroup  )) + geom_boxplot(outlier.size = 0, fill=c("#6E7CB9", "#718DC0", "#759FC8", "#78B1D0", "#84C0D0", "#9CCAC6", "#B3D5BB", "#CBDFB1", "#D8E0AA", "#E2DEA4", "#ECDC9D", "#F4D797", "#F0C691", "#EDB48A", "#E9A383", "#E49883", "#DE9186", "#D88A89", "#D2848D")) +scale_fill_manual(values=pal2) +  geom_point(pch = 21, size= 1.25, position=position_dodge2(width=.5)) + scale_y_continuous(limits=c(0, 22), breaks=seq(0,22,2)) + ylab("Number of Total Prophage") +vertheme + ggtitle("A. Total Number of Predicted Prophage") + coord_flip() + xlab("Bacterial Isolate")
+F1A <- ggplot(Combee, aes(x = FinalGroup, y = Num_of_phage, fill = FinalGroup  )) + geom_boxplot(outlier.size = 0, fill=c("#6E7CB9", "#718DC0", "#759FC8", "#78B1D0", "#84C0D0", "#9CCAC6", "#B3D5BB", "#CBDFB1", "#D8E0AA", "#E2DEA4", "#ECDC9D", "#F4D797", "#F0C691", "#EDB48A", "#E9A383", "#E49883", "#DE9186", "#D88A89", "#D2848D")) +scale_fill_manual(values=pal2) +  geom_point(pch = 21, size= 1.25, position=position_dodge2(width=.5)) + scale_y_continuous(limits=c(0, 22), breaks=seq(0,22,2)) + ylab("Number of Total Prophage") +vertheme + ggtitle("A. Total Number of Predicted Prophage") + coord_flip() + xlab("Bacterial Isolate") + theme(axis.text.y = element_text(face = "italic"))
 
 
 ##Fig1B: Total prophage composition per isolate
@@ -138,7 +138,7 @@ F1B <- ggplot(Combee, aes(x = FinalGroup, y = percent, fill = FinalGroup )) + ge
 
 ##Fig 1C: Number of intact prophages per isolate
 
-F1C <- ggplot(Combee, aes(x = FinalGroup, y = NumIntPhage, fill = FinalGroup  )) + geom_boxplot(outlier.size = 0, fill=c("#6E7CB9", "#718DC0", "#759FC8", "#78B1D0", "#84C0D0", "#9CCAC6", "#B3D5BB", "#CBDFB1", "#D8E0AA", "#E2DEA4", "#ECDC9D", "#F4D797", "#F0C691", "#EDB48A", "#E9A383", "#E49883", "#DE9186", "#D88A89", "#D2848D")) +scale_fill_manual(values=pal2) +  geom_point(pch = 21, size= 1.25, position=position_dodge2(width=.5)) + scale_y_continuous(limits=c(0, 22), breaks=seq(0,22,2)) + ylab("Number of Intact Prophage") +vertheme + ggtitle("C. Number of Estimated Intact Prophage") + coord_flip() + xlab("Bacterial Isolate")
+F1C <- ggplot(Combee, aes(x = FinalGroup, y = NumIntPhage, fill = FinalGroup  )) + geom_boxplot(outlier.size = 0, fill=c("#6E7CB9", "#718DC0", "#759FC8", "#78B1D0", "#84C0D0", "#9CCAC6", "#B3D5BB", "#CBDFB1", "#D8E0AA", "#E2DEA4", "#ECDC9D", "#F4D797", "#F0C691", "#EDB48A", "#E9A383", "#E49883", "#DE9186", "#D88A89", "#D2848D")) +scale_fill_manual(values=pal2) +  geom_point(pch = 21, size= 1.25, position=position_dodge2(width=.5)) + scale_y_continuous(limits=c(0, 22), breaks=seq(0,22,2)) + ylab("Number of Intact Prophage") +vertheme + ggtitle("C. Number of Estimated Intact Prophage") + coord_flip() + xlab("Bacterial Isolate") +  theme(axis.text.y = element_text(face = "italic"))
 
 
 

@@ -20,7 +20,7 @@ library(PNWColors)
 #setwd("~/Documents/Work/Chap1/HBProphage_PeerJ/")
 
 #set palette and graph theme
-pal4=pnw_palette("Sailboat",7, type = "continuous") 
+pal4=pnw_palette("Sailboat",4, type = "continuous") 
 
 theme1 <- theme_linedraw() + 
   theme(
@@ -37,8 +37,10 @@ theme_set(theme1)
 ##### Load and Clean Data ##
 
 ##tax: output of the top hits between phage and dereplicated caudovirales phage from inphared 
-tax<-read.delim("data/raw/CAUDO_rd2_checkvbee_inphared_topgen_fam_ani.tsv", header=FALSE)
-colnames(tax)[1:6]=c("phage", "ref_tax", "top_phage_fam", "fam_ani", "hit_prot", "prot_frac")
+tax<-read.delim("data/raw/taxonomy/py3out_AAI_topref_dc525.tsv", header=FALSE)
+colnames(tax)[1:6]=c("phage", "ref_tax", "top_phage_fam", "fam_aai", "hit_prot", "prot_frac")
+tax$phage <- gsub("_$", "", tax$phage)
+
 
 ##derep: list of all phage and their status as a representative phage or not
 derep <- read.csv("data/dc525_dRepList.csv", row.names=1)
@@ -65,7 +67,9 @@ gvog.base <-merge[,c(1:8,13)] ##keep relevant columns
 gvog.base$top_phage_fam[is.na(gvog.base$top_phage_fam)] <- "unclassified_nohit"
 gvog.base[is.na(gvog.base)] <- 0
 
-
+gvog.base$finaltax <- "tbd"
+gvog.base$finaltax <- ifelse(gvog.base$fam_aai>=30 & gvog.base$prot_frac>0.5, gvog.base$top_phage_fam, "Unclassified")
+gvog.base$finaltax <- ifelse(gvog.base$finaltax=="Myoviridae" |gvog.base$finaltax=="Siphoviridae"| gvog.base$finaltax=="Podoviridae", "Unclassified", gvog.base$finaltax)
 ##create tally
 gvog.base$tally <-1
 
@@ -73,71 +77,40 @@ gvog.base$tally <-1
 gvog.base$FinalGroup <- factor(gvog.base$FinalGroup,levels = c('Bartonella apis', 'Bifidobacterium asteroides', 'Bifidobacterium coryneforme', 'Bifidobacterium indicum', 'Frischella perrara', 'Lactobacillus mellifer', 'Lactobacillus mellis', 'Lactobacillus apis', 'Lactobacillus helsingborgensis', 'Lactobacillus kimbladii', 'Lactobacillus kullabergensis', 'Lactobacillus melliventris', 'Lactobacillus kunkeei', 'Bombella apis', 'Snodgrassella alvi', 'Bombella sp.', 'Commensalibacter sp.', 'Gilliamella apis', 'Gilliamella apicola', 'Melissococcus plutonius', 'Paenibacillus larvae'))
 
 
-unique(gvog.base$top_phage_fam) ## Only families present are Siph, Myo, Podo and unclassified/no hit 
+unique(gvog.base$finaltax) ## [1] "Unclassified"        "Drexlerviridae"      "Peduoviridae"        "Mesyanzhinovviridae"
 
-
-##create new database for counting
-allhits <- gvog.base 
-
-#create a final family and weak family classification column
-allhits$finalfam <- "tbd"
-allhits$wkfam <- 0
-
-## if a phage has a top hit to a family with greater than 50% alignment, classify that reference family as the "final family" (finalfam)
-allhits$finalfam <- ifelse(allhits$prot_frac>=.5, allhits$top_phage_fam, allhits$finalfam)
-
-#if a phage has a top hit below 20% alignment, classify its final family as "Unclassified"
-allhits$finalfam <- ifelse(allhits$prot_frac<0.2, "Unclassified", allhits$finalfam)
-
-#if a phage's top hit is greater than 20% alignment but it has not yet been officially classified (so below 50%), classify the column wkfam with that family as a weak association (wkfam)
-allhits$wkfam <- ifelse(allhits$prot_frac>=0.2 & allhits$finalfam=="tbd", allhits$top_phage_fam, allhits$wkfam)
-
-##Rename wkfam values
-allhits$wkfam <-ifelse(allhits$wkfam=="Siphoviridae", "Weak_Siphoviridae", allhits$wkfam)
-allhits$wkfam <-ifelse(allhits$wkfam=="Myoviridae", "Weak_Myoviridae", allhits$wkfam)
-allhits$wkfam <-ifelse(allhits$wkfam=="Podoviridae", "Weak_Podoviridae", allhits$wkfam)
-
-##if finalfam is still unclassified (indicated by "tbd"), now replace it with the  string in the wkfam column
-allhits$finalfam <- ifelse(allhits$finalfam=="tbd", allhits$wkfam, allhits$finalfam)
 
 ##tally up phage taxonomy hits 
 
-  tally <- allhits 
+  tally <- gvog.base 
 
   #create columns  
-  tally$Siph <- 0
-  tally$Pod <- 0
-  tally$Myo <- 0
-  tally$Hell <- 0
-  tally$Siph_wk <- 0
-  tally$Pod_wk <-0
-  tally$Myo_wk <-0
-  tally$Uncl <- 0
+  tally$Drexlerviridae <- 0
+  tally$Peduoviridae <- 0
+  tally$Mesyanzhinovviridae <- 0
+  tally$Unclassified <- 0
 
   tally$total.class <-0
   tally$total.all <-0
 
   #count  
-  tally$Siph <- ifelse(tally$finalfam=="Siphoviridae", 1, 0)
-  tally$Siph_wk <- ifelse(tally$finalfam =="Weak_Siphoviridae", 1, 0)
-  tally$Pod <- ifelse(tally$finalfam =="Podoviridae", 1, 0)
-  tally$Pod_wk <- ifelse(tally$finalfam =="Weak_Podoviridae", 1, 0)
-  tally$Myo <- ifelse(tally$finalfam =="Myoviridae", 1, 0)
-  tally$Myo_wk <- ifelse(tally$finalfam =="Weak_Myoviridae", 1, 0)
-  tally$Uncl <- ifelse(tally$finalfam =="Unclassified" | tally$finalfam=="unclassified_nohit", 1, 0)
+  tally$Drexlerviridae <- ifelse(tally$finaltax=="Drexlerviridae", 1, 0)
+  tally$Peduoviridae <- ifelse(tally$finaltax =="Peduoviridae", 1, 0)
+  tally$Mesyanzhinovviridae <- ifelse(tally$finaltax =="Mesyanzhinovviridae", 1, 0)
+  tally$Unclassified <- ifelse(tally$finaltax =="Unclassified" | tally$finaltax=="unclassified_nohit", 1, 0)
   
-  tally$total.class <- tally$Siph + tally$Pod + tally$Myo   ##count how many are strongly classified
-  tally$total.all <- tally$Siph + tally$Pod + tally$Myo + tally$Uncl + tally$Siph_wk + tally$Myo_wk + tally$Pod_wk  ##count how many total classified/weak/unclassified
+  tally$total.class <- tally$Drexlerviridae + tally$Peduoviridae + tally$Mesyanzhinovviridae   ##count how many are strongly classified
+  tally$total.all <- tally$total.class + tally$Unclassified ##count how many total classified/weak/unclassified
 
   
   tally$all_placeholder <- "all!"
 
 ##sum up the number of each phage family per bacterial host
-group.tax <- aggregate(tally[, 13:22], by=list(tally$all_placeholder, tally$FinalGroup), FUN=sum)
+group.tax <- aggregate(tally[, 12:17], by=list(tally$all_placeholder, tally$FinalGroup), FUN=sum)
 colnames(group.tax)[1:2] = c("All", "FinalGroup")
 
 #sum up the number of each phage family across all phage (not accounting for bacterial host)
-all.tax <- aggregate(tally[,13:22], by=list(tally$all_placeholder), FUN=sum)
+all.tax <- aggregate(tally[,12:17], by=list(tally$all_placeholder), FUN=sum)
 colnames(all.tax)[1] = c("all_phage")
 
 
@@ -146,7 +119,7 @@ colnames(all.tax)[1] = c("all_phage")
 
 all.piv <- all.tax  %>%
   pivot_longer(
-    cols = c("Siph", "Siph_wk", "Myo", "Myo_wk", "Pod", "Pod_wk", "Uncl"),  
+     cols = c(ends_with("dae"),"Unclassified"),
     names_to = "Tax", 
     names_prefix = "wk",
     values_to = "NumPhage",
@@ -157,7 +130,7 @@ all.piv$percent <- all.piv$NumPhage/all.piv$total.all*100
 
 group.piv <- group.tax %>%
   pivot_longer(
-    cols = c("Siph", "Siph_wk", "Myo", "Myo_wk", "Pod", "Pod_wk", "Uncl"), 
+     cols = c(ends_with("dae"),"Unclassified"),
     names_to = "Tax", 
     names_prefix = "wk",
     values_to = "NumPhage",
@@ -169,10 +142,11 @@ group.piv$percent <- group.piv$NumPhage/group.piv$total.all*100
 
 stack50.50 <- ggplot(group.piv, aes(fill=Tax, y=NumPhage, x=FinalGroup)) + 
     geom_bar(position="stack", stat="identity") +
-    xlab("") + ylab("Taxonomic Distribution of Prophage") +  scale_fill_manual(values=pal4, labels=c('Myoviridae', 'Weakly Myoviridae', 'Podoviridae', 'Weakly Podoviridae', 'Siphoviridae', 'Weakly Siphoviridae', 'Unclassified')) + xlab("") 
+    xlab("") + ylab("Taxonomic Distribution of Prophage") +  scale_fill_manual(values=pal4) + xlab("") + theme(axis.text.x = element_text(face = "italic"))
 
 
 stack50.50 <-  ggpar(stack50.50, font.tickslab = c(10), xtickslab.rt = 50) + font("xy.text", size = 10)
+
 
 stack50.50
 
