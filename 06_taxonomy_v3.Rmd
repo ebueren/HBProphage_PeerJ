@@ -14,13 +14,12 @@ library(tidyverse)
 library(dplyr)
 library(ggplot2)
 library(ggpubr)
-library(PNWColors)
 
 #set working directory if necessary, commented out 
 #setwd("~/Documents/Work/Chap1/HBProphage_PeerJ/")
 
 #set palette and graph theme
-pal4=pnw_palette("Sailboat",4, type = "continuous") 
+pal4=pnw_palette("Sailboat",5, type = "continuous") 
 
 theme1 <- theme_linedraw() + 
   theme(
@@ -140,9 +139,11 @@ group.piv$percent <- group.piv$NumPhage/group.piv$total.all*100
 
 #create a taxonomy bar graph divided by bacterial hosts
 
+mycols4 <- c("#7abcd4", "#d0e2b0","#6e7bb9","#d1848c")  ##manually selected from the PNW.Colors palette (Sailboat) https://github.com/jakelawlor/PNWColors
+
 stack50.50 <- ggplot(group.piv, aes(fill=Tax, y=NumPhage, x=FinalGroup)) + 
     geom_bar(position="stack", stat="identity") +
-    xlab("") + ylab("Taxonomic Distribution of Prophage") +  scale_fill_manual(values=pal4) + xlab("") + theme(axis.text.x = element_text(face = "italic"))
+    xlab("") + ylab("Taxonomic Distribution of Prophage") +  scale_fill_manual(values=mycols4) + xlab("") + theme(axis.text.x = element_text(face = "italic"))
 
 
 stack50.50 <-  ggpar(stack50.50, font.tickslab = c(10), xtickslab.rt = 50) + font("xy.text", size = 10)

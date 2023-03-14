@@ -4,6 +4,8 @@
 
 ## Code: ##
 
+Raw sequences available at: Link Here
+
 01_datacleaning: Cleaning of NCBI metadata of bacterial isolates and basic phage pipeline (merging phage datasets, confidence filtering, incorporating dereplication)
 
 02_functionalcleaning: Merging functional analysis of phage (PHROGS & COG hits), identifying phage-associated proteins, estimating intactness.

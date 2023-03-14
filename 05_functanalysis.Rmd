@@ -123,11 +123,11 @@ theme2 <- theme_linedraw() +
 ##Create palettes for graphs
 #palette for detailed categories graph
 deetscolors <-c(microshades_palette("micro_cvd_green", 4, lightest = FALSE), #metabolism
-               microshades_palette("micro_cvd_turquoise", 4, lightest = FALSE), #metab 
-               microshades_palette("micro_cvd_purple", 4, lightest = FALSE), # cellular
-                microshades_palette("micro_cvd_blue", 2, lightest = TRUE), ##info
-                microshades_palette("micro_cvd_orange", 1, lightest = TRUE), ##phage
-               microshades_palette("micro_cvd_gray", 3, lightest = FALSE)) ##unknown
+               microshades_palette("micro_cvd_purple", 4, lightest = FALSE), # metabolism
+                microshades_palette("micro_cvd_blue", 4, lightest = TRUE), ##cellular
+              microshades_palette("micro_cvd_gray", 2, lightest = FALSE), #cellular 
+              microshades_palette("micro_cvd_orange", 1, lightest = TRUE), #phrogs_ID_phage_morons
+               microshades_palette("micro_cvd_gray", 1, lightest = TRUE)) ##phage-associated
 
 
 
