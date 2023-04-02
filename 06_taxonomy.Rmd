@@ -1,0 +1,218 @@
+---
+title: "06_taxonomy"
+output: html_notebook
+---
+
+```{r}
+##clear working environment
+rm(list=ls())
+
+
+##load packages
+library(tidyr)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(PNWColors)
+library(microshades)
+
+pal <- pnw_palette('Sailboat', 10)
+
+pal2 <- c(microshades_palette("micro_cvd_blue", 5, lightest = FALSE), 
+           microshades_palette("micro_cvd_green", 2, lightest = TRUE), 
+               microshades_palette("micro_cvd_purple", 2, lightest = FALSE))
+          
+
+#set working directory if necessary, commented out 
+#setwd("~/Documents/Work/Chap1/HBProphage_PeerJ/")
+
+
+
+theme1 <- theme_linedraw() + 
+  theme(
+      legend.position="left", 
+      plot.title = element_text(size=15),
+      axis.text.x = element_text(angle = 270, size= 30, vjust=1, hjust=0),
+      axis.text.y = element_text(size=9),
+      axis.title.y = element_text(size=10, angle=90),
+      axis.ticks.length = unit(.3, "cm")
+    ) 
+
+theme_set(theme1)
+
+##### Load and Clean Data ##
+
+##tax: output of the top hits between phage and dereplicated caudovirales phage from inphared 
+tax<-read.delim("data/raw/taxonomy/py3out_AAI_topref_dc525.tsv", header=FALSE)
+colnames(tax)[1:6]=c("phage", "ref_tax", "top_phage_fam", "fam_aai", "hit_prot", "prot_frac")
+tax$phage <- gsub("_$", "", tax$phage)
+
+
+##derep: list of all phage and their status as a representative phage or not
+derep <- read.csv("data/dc525_dRepList.csv", row.names=1)
+derep <- derep[,c(1,2,3)]
+
+March <- read.delim("data/raw/taxonomy/1Mar2023_data.tsv")
+
+##phage.out: list of all high confident phage with bacterial host information
+phage.out<-read.csv("data/dc525_5kbdsDNAphage.csv", row.names=1)
+
+derep.tax1 <- merge(tax, derep, by.y="phage_seq", by.x="phage", all.x=TRUE, all.y=TRUE)
+derep.tax <- subset(derep.tax1, derep.tax1$representative=="reference_phage")
+
+## add in bacterial host information
+merge <- merge(derep.tax, phage.out, by.x="phage", by.y="phage_seqname", all.x=TRUE, all.y=FALSE)
+
+gvog.base <-merge[,c(1:8,13)] ##keep relevant columns
+##any phage with NA for top_phage_fam had no top hit
+gvog.base$top_phage_fam[is.na(gvog.base$top_phage_fam)] <- "unclassified_nohit"
+gvog.base[is.na(gvog.base)] <- 0
+
+test <- merge(gvog.base, March, by.x="ref_tax", by.y="Accession", all.x=TRUE, all.y=FALSE)
+
+gvog.base <- test[,c(1:10, 16, 23:33)]
+g.compare <- gvog.base[,c(1:3,16,13, 4:22)]
+
+gvog.base$finalClass <- "tbd"
+gvog.base$finalClass <- ifelse(gvog.base$top_phage_fam=="unclassified_nohit", "Unclassified", gvog.base$Class)
+
+gvog.base$finalfam<- "tbd"
+gvog.base$finalfam <- ifelse(gvog.base$fam_aai>=30 & gvog.base$prot_frac>0.5, gvog.base$Family, "Unclassified")
+gvog.base$finalfam <- ifelse(gvog.base$top_phage_fam=="unclassified_nohit", "Unclassified", gvog.base$Family)
+
+gvog.base$finalsubfam <- "tbd"
+gvog.base$finalsubfam <- ifelse(gvog.base$fam_aai>=50 & gvog.base$prot_frac>0.675, gvog.base$Sub.family, "Unclassified")
+
+gvog.base$finalgenus <- "tbd"
+gvog.base$finalgenus <- ifelse(gvog.base$fam_aai>=70 & gvog.base$prot_frac>0.85, gvog.base$Genus, "Unclassified")
+
+gvog.base$best <- gvog.base$finalClass
+gvog.base$best <- ifelse(gvog.base$finalfam!="Unclassified", gvog.base$finalfam, gvog.base$best)
+gvog.base$best <- ifelse(gvog.base$finalgenus!="Unclassified", gvog.base$finalgenus, gvog.base$best)
+
+
+
+##set levels
+gvog.base$FinalGroup <- factor(gvog.base$FinalGroup,levels = c('Bartonella apis', 'Bifidobacterium asteroides', 'Bifidobacterium coryneforme', 'Bifidobacterium indicum', 'Frischella perrara', 'Lactobacillus mellifer', 'Lactobacillus mellis', 'Lactobacillus apis', 'Lactobacillus helsingborgensis', 'Lactobacillus kimbladii', 'Lactobacillus kullabergensis', 'Lactobacillus melliventris', 'Lactobacillus kunkeei', 'Bombella apis', 'Snodgrassella alvi', 'Bombella sp.', 'Commensalibacter sp.', 'Gilliamella apis', 'Gilliamella apicola', 'Melissococcus plutonius', 'Paenibacillus larvae'))
+
+
+```
+
+
+##Derep AT FAMILY LEVEL
+```{r}
+
+##create tally
+gvog.base$tally <-1
+
+##set levels
+gvog.base$FinalGroup <- factor(gvog.base$FinalGroup,levels = c('Bartonella apis', 'Bifidobacterium asteroides', 'Bifidobacterium coryneforme', 'Bifidobacterium indicum', 'Frischella perrara', 'Lactobacillus mellifer', 'Lactobacillus mellis', 'Lactobacillus apis', 'Lactobacillus helsingborgensis', 'Lactobacillus kimbladii', 'Lactobacillus kullabergensis', 'Lactobacillus melliventris', 'Lactobacillus kunkeei', 'Bombella apis', 'Snodgrassella alvi', 'Bombella sp.', 'Commensalibacter sp.', 'Gilliamella apis', 'Gilliamella apicola', 'Melissococcus plutonius', 'Paenibacillus larvae'))
+
+
+unique(gvog.base$best)  
+
+#[1] "Unclassified"        "Caudoviricetes"      "Peduoviridae"        "Lilyvirus"           "Fernvirus"           "Vegasvirus"          "Dragolirvirus"      
+#[8] "Halcyonevirus"       "Mesyanzhinovviridae"
+
+
+##tally up phage taxonomy hits 
+
+  tally <- gvog.base 
+
+  #create columns  
+  tally$Lilyvirus <- 0
+  tally$Peduoviridae <- 0
+  tally$Fernvirus <- 0
+  tally$Dragolirvirus <- 0
+  tally$Vegasvirus <- 0
+  tally$Halcyonevirus <- 0
+  tally$Mesyanzhinovviridae <- 0
+  tally$Caudoviricetes <-0
+  tally$Unclassified <- 0
+
+  tally$total.class <-0
+  tally$total.all <-0
+
+  #count  
+  tally$Peduoviridae <- ifelse(tally$best=="Peduoviridae", 1, 0)
+  tally$Lilyvirus <- ifelse(tally$best=="Lilyvirus", 1, 0)
+  tally$Fernvirus <- ifelse(tally$best=="Fernvirus", 1, 0)
+  tally$Dragolirvirus <- ifelse(tally$best=="Dragolirvirus", 1, 0)
+  tally$Vegasvirus <- ifelse(tally$best=="Vegasvirus", 1, 0)
+  tally$Halcyonevirus <- ifelse(tally$best=="Halcyonevirus", 1, 0)
+  tally$Mesyanzhinovviridae <- ifelse(tally$best =="Mesyanzhinovviridae", 1, 0)
+  
+  tally$Caudoviricetes <- ifelse(tally$best =="Caudoviricetes", 1, 0)
+  tally$Unclassified <- ifelse(tally$best =="Unclassified", 1, 0)
+  
+  tally$total.class <- tally$Peduoviridae + tally$Lilyvirus + tally$Fernvirus + tally$Dragolirvirus + tally$Halcyonevirus + tally$Mesyanzhinovviridae + tally$Caudoviricetes +tally$Vegasvirus  ##count how many are strongly classified
+  tally$total.all <- tally$total.class + tally$Unclassified ##count how many total classified/weak/unclassified
+
+  
+  tally$all_placeholder <- "all!"
+
+##sum up the number of each phage family per bacterial host
+group.tax <- aggregate(tally[, 29:39], by=list(tally$all_placeholder, tally$FinalGroup), FUN=sum)
+colnames(group.tax)[1:2] = c("All", "FinalGroup")
+
+#sum up the number of each phage family across all phage (not accounting for bacterial host)
+all.tax <- aggregate(tally[,29:39], by=list(tally$all_placeholder), FUN=sum)
+colnames(all.tax)[1] = c("all_phage")
+
+
+
+##pivot dataframes to graph
+
+all.piv <- all.tax  %>%
+  pivot_longer(
+     cols = c("Caudoviricetes", ends_with("dae"),ends_with("nae"), ends_with("us"), "Unclassified"),
+    names_to = "Tax", 
+    names_prefix = "wk",
+    values_to = "NumPhage",
+    values_drop_na = TRUE
+  )
+
+all.piv$percent <- all.piv$NumPhage/all.piv$total.all*100
+
+group.piv <- group.tax %>%
+  pivot_longer(
+    cols = c("Caudoviricetes", ends_with("dae"),ends_with("nae"), ends_with("us"), "Unclassified"),
+    names_to = "Tax", 
+    names_prefix = "wk",
+    values_to = "NumPhage",
+    values_drop_na = TRUE
+  )
+group.piv$percent <- group.piv$NumPhage/group.piv$total.all*100
+
+#create a taxonomy bar graph divided by bacterial hosts
+
+#[1] "Unclassified"        "Caudoviricetes"      "Peduoviridae"        "Lilyvirus"           "Fernvirus"           "Gochnauervirinae"    "Vegasvirus"         
+#[8] "Dragolirvirus"       "Halcyonevirus"       "Mesyanzhinovviridae"
+
+
+group.piv$Tax <- factor(group.piv$Tax,levels = c('Lilyvirus', 'Fernvirus','Vegasvirus','Halcyonevirus','Dragolirvirus','Peduoviridae', 'Mesyanzhinovviridae', 'Caudoviricetes', 'Unclassified'))
+
+
+
+
+stack50.50 <- ggplot(group.piv, aes(fill=Tax, y=NumPhage, x=FinalGroup)) + 
+    geom_bar(position="stack", stat="identity") +
+    xlab("") + ylab("Taxonomic Distribution of Prophage ")  + xlab("") + scale_fill_manual(values=pal2, labels=c(
+      "Lilyvirus", "Fernvirus", "Vegasvirus", "Halcyonevirus","Dragolirvirus",'Peduoviridae', 'Mesyanzhinovviridae', 'Caudoviricetes', expression(plain("Unclassified"))),  ) +theme(axis.text.x = element_text(face = "italic"), legend.text = element_text(face="italic"), legend.text.align = 0)
+
+
+#scale_fill_discrete("Species", labels = c(expression(italic("Listeria monocytogenes")), expression(italic("Pseudomonas aeruginosa")),expression(italic("Bacillus subtilis group*")),expression(italic("Escherichia coli"))))
+
+#, legend.text = element_text(face="italic"))
+
+
+stack50.50 <-  ggpar(stack50.50, font.tickslab = c(10), xtickslab.rt = 50) + font("xy.text", size = 10)
+
+
+stack50.50
+
+ggsave("figs/Fig5.png", width=7, height=5)
+```
+
+
